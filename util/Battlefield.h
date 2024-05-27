@@ -1,8 +1,10 @@
 #pragma once
 
-#include "../robots/base/Robot.h"
 #include "CircularLinkedList.h"
 #include <memory>
+
+// Needed to avoid circular dependency
+class Robot;
 
 class Battlefield
 {
