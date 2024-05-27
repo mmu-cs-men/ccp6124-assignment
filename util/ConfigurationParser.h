@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../robots/base/Robot.h"
 #include "DynamicArray.h"
 #include <memory>
