@@ -80,4 +80,22 @@ template <typename T> class CircularLinkedList
                 current = current->next;
             } while (current != head);
         }
+
+        T next(const T &data) const
+        {
+            if (!head)
+                throw std::runtime_error("List is empty");
+
+            auto current = head;
+            do
+            {
+                if (current->data == data)
+                {
+                    return current->next->data;
+                }
+                current = current->next;
+            } while (current != head);
+
+            throw std::runtime_error("Data not found in the list");
+        }
 };
