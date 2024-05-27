@@ -26,4 +26,9 @@ template <typename T> class Queue
         {
             return list.isEmpty();
         }
+
+        std::size_t size() const
+        {
+            return list.size();
+        }
 };

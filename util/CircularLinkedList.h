@@ -16,9 +16,10 @@ template <typename T> class CircularLinkedList
 
         std::shared_ptr<Node> head;
         std::shared_ptr<Node> tail;
+        std::size_t list_size;
 
     public:
-        CircularLinkedList() : head(nullptr), tail(nullptr)
+        CircularLinkedList() : head(nullptr), tail(nullptr), list_size(0)
         {
         }
 
@@ -37,6 +38,7 @@ template <typename T> class CircularLinkedList
                 tail = newNode;
                 tail->next = head;
             }
+            ++list_size;
         }
 
         bool isEmpty() const
@@ -61,6 +63,7 @@ template <typename T> class CircularLinkedList
                     head = head->next;
                     tail->next = head;
                 }
+                --list_size;
                 return;
             }
 
@@ -75,6 +78,7 @@ template <typename T> class CircularLinkedList
                     {
                         tail = current;
                     }
+                    --list_size;
                     return;
                 }
                 current = current->next;
@@ -97,5 +101,10 @@ template <typename T> class CircularLinkedList
             } while (current != head);
 
             throw std::runtime_error("Data not found in the list");
+        }
+
+        std::size_t size() const
+        {
+            return list_size;
         }
 };
