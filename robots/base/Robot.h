@@ -12,7 +12,7 @@ class Robot
         virtual void executeActionPlan() = 0;
         virtual ~Robot() = default;
 
-    private:
+    protected:
         std::string name;
         int xPos;
         int yPos;
