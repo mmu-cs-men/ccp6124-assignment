@@ -1,104 +1,144 @@
-#pragma once
-
+#include <iostream>
 #include <memory>
 #include <stdexcept>
 
 template <typename T> class DynamicArray
 {
     public:
-        DynamicArray()
-            : capacity(1), size_(0), data_(std::make_unique<T[]>(capacity))
+        DynamicArray() : capacity(10), currentSize(0), data(new T[capacity])
         {
         }
 
         DynamicArray(const DynamicArray &other)
-            : capacity(other.capacity), size_(other.size_),
-              data_(std::make_unique<T[]>(other.capacity))
+            : capacity(other.capacity), currentSize(other.currentSize),
+              data(new T[capacity])
         {
-            for (std::size_t i = 0; i < size_; ++i)
+            for (size_t i = 0; i < currentSize; ++i)
             {
-                data_[i] = other.data_[i];
+                data[i] = other.data[i];
             }
         }
 
-        void append(T data)
+        DynamicArray &operator=(const DynamicArray &other)
         {
-            if (size_ == capacity)
+            if (this != &other)
             {
-                resize(capacity * 2);
+                std::unique_ptr<T[]> newData(new T[other.capacity]);
+                for (size_t i = 0; i < other.currentSize; ++i)
+                {
+                    newData[i] = other.data[i];
+                }
+                data = std::move(newData);
+                capacity = other.capacity;
+                currentSize = other.currentSize;
             }
-            data_[size_++] = std::move(data);
+            return *this;
         }
 
-        void remove(std::size_t index)
+        DynamicArray(DynamicArray &&other) noexcept
+            : capacity(other.capacity), currentSize(other.currentSize),
+              data(std::move(other.data))
         {
-            if (index >= size_)
+            other.capacity = 0;
+            other.currentSize = 0;
+            other.data = nullptr;
+        }
+
+        DynamicArray &operator=(DynamicArray &&other) noexcept
+        {
+            if (this != &other)
+            {
+                data = std::move(other.data);
+                capacity = other.capacity;
+                currentSize = other.currentSize;
+
+                other.data = nullptr;
+                other.capacity = 0;
+                other.currentSize = 0;
+            }
+            return *this;
+        }
+
+        void append(const T &value)
+        {
+            if (currentSize >= capacity)
+            {
+                resize();
+            }
+            data[currentSize++] = value;
+        }
+
+        void remove(size_t index)
+        {
+            if (index >= currentSize)
             {
                 throw std::out_of_range("Index out of range");
             }
-            for (std::size_t i = index; i < size_ - 1; ++i)
+
+            for (size_t i = index; i < currentSize - 1; ++i)
             {
-                data_[i] = std::move(data_[i + 1]);
+                data[i] = std::move(data[i + 1]);
             }
-            --size_;
+            currentSize--;
         }
 
-        std::size_t size() const
+        size_t size() const
         {
-            return size_;
+            return currentSize;
         }
 
-        T &operator[](std::size_t index)
+        T &operator[](size_t index)
         {
-            if (index >= size_)
-            {
-                throw std::out_of_range("Index out of range");
-            }
-            return data_[index];
-        }
-
-        const T &operator[](std::size_t index) const
-        {
-            if (index >= size_)
+            if (index >= currentSize)
             {
                 throw std::out_of_range("Index out of range");
             }
-            return data_[index];
+            return data[index];
         }
 
+        const T &operator[](size_t index) const
+        {
+            if (index >= currentSize)
+            {
+                throw std::out_of_range("Index out of range");
+            }
+            return data[index];
+        }
+
+        // I like range based for loops
         T *begin()
         {
-            return data_.get();
+            return data.get();
         }
-
         T *end()
         {
-            return data_.get() + size_;
+            return data.get() + currentSize;
         }
-
         const T *begin() const
         {
-            return data_.get();
+            return data.get();
         }
-
         const T *end() const
         {
-            return data_.get() + size_;
+            return data.get() + currentSize;
         }
 
     private:
-        void resize(std::size_t new_capacity)
-        {
-            std::unique_ptr<T[]> new_data = std::make_unique<T[]>(new_capacity);
-            for (std::size_t i = 0; i < size_; ++i)
-            {
-                new_data[i] = std::move(data_[i]);
-            }
-            data_ = std::move(new_data);
-            capacity = new_capacity;
-        }
+        size_t capacity;
+        size_t currentSize;
+        std::unique_ptr<T[]> data;
 
-        std::size_t capacity;
-        std::size_t size_;
-        std::unique_ptr<T[]> data_;
+        void resize()
+        {
+            size_t newCapacity = capacity * 2;
+            std::unique_ptr<T[]> newData(new T[newCapacity]);
+
+            for (size_t i = 0; i < currentSize; ++i)
+            {
+                newData[i] = std::move(data[i]);
+            }
+
+            capacity = newCapacity;
+            data = std::move(newData);
+        }
 };
