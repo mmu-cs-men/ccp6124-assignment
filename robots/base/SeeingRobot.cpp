@@ -1,4 +1,5 @@
 #include "SeeingRobot.h"
+#include "../../util/Battlefield.h"
 
 SeeingRobot::SeeingRobot(std::string name, int xPos, int yPos,
                          std::string symbol)

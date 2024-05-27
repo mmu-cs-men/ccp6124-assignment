@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../../util/Battlefield.h"
 #include <memory>
 #include <string>
+
+class Battlefield;
 
 class Robot : public std::enable_shared_from_this<Robot>
 {

@@ -1,4 +1,5 @@
 #include "SteppingRobot.h"
+#include "../../util/Battlefield.h"
 
 SteppingRobot::SteppingRobot(std::string name, int xPos, int yPos,
                              std::string symbol)

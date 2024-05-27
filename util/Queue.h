@@ -17,7 +17,7 @@ template <typename T> class Queue
         {
             if (!list.isEmpty())
             {
-                auto headData = list.head->data;
+                auto headData = list.getHead();
                 list.remove(headData);
                 return headData;
             }

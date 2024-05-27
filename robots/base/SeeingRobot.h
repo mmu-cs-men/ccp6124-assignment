@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../../util/Cell.h"
 #include "../../util/DynamicArray.h"
 #include "Robot.h"

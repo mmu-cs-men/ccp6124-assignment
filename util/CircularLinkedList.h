@@ -5,20 +5,6 @@
 
 template <typename T> class CircularLinkedList
 {
-    private:
-        struct Node
-        {
-                T data;
-                std::shared_ptr<Node> next;
-                Node(const T &data) : data(data), next(nullptr)
-                {
-                }
-        };
-
-        std::shared_ptr<Node> head;
-        std::shared_ptr<Node> tail;
-        std::size_t list_size;
-
     public:
         CircularLinkedList() : head(nullptr), tail(nullptr), list_size(0)
         {
@@ -45,6 +31,14 @@ template <typename T> class CircularLinkedList
         bool isEmpty() const
         {
             return head == nullptr;
+        }
+
+        // Ooooh ;)
+        T getHead() const
+        {
+            if (!head)
+                throw std::runtime_error("List is empty");
+            return head->data;
         }
 
         void remove(const T &data)
@@ -108,4 +102,18 @@ template <typename T> class CircularLinkedList
         {
             return list_size;
         }
+
+    private:
+        struct Node
+        {
+                T data;
+                std::shared_ptr<Node> next;
+                Node(const T &data) : data(data), next(nullptr)
+                {
+                }
+        };
+
+        std::shared_ptr<Node> head;
+        std::shared_ptr<Node> tail;
+        std::size_t list_size;
 };

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Robot.h"
 
 class ShootingRobot : virtual public Robot

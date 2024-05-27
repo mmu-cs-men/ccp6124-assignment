@@ -1,8 +1,9 @@
 #include "ShootingRobot.h"
+#include "../../util/Battlefield.h"
 #include <stdexcept>
 
 ShootingRobot::ShootingRobot(std::string name, int xPos, int yPos,
-                         std::string symbol)
+                             std::string symbol)
     : Robot(name, xPos, yPos, symbol)
 {
 }

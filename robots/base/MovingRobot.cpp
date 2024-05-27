@@ -1,4 +1,5 @@
 #include "MovingRobot.h"
+#include "../../util/Battlefield.h"
 
 MovingRobot::MovingRobot(std::string name, int xPos, int yPos,
                          std::string symbol)
