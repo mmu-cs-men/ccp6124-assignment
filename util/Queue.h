@@ -13,13 +13,15 @@ template <typename T> class Queue
             list.append(data);
         }
 
-        void dequeue()
+        T dequeue()
         {
             if (!list.isEmpty())
             {
                 auto headData = list.head->data;
                 list.remove(headData);
+                return headData;
             }
+            throw std::runtime_error("Queue is empty");
         }
 
         bool isEmpty() const
