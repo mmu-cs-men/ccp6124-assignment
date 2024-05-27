@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CircularLinkedList.h"
+#include "Queue.h"
 #include <memory>
 
 // Needed to avoid circular dependency
@@ -15,6 +16,8 @@ class Battlefield
 
     private:
         void nextRobot();
+        int getParticipatingRobots() const;
+        Queue<std::shared_ptr<Robot>> respawnQueue;
         CircularLinkedList<std::shared_ptr<Robot>> robots;
         std::shared_ptr<Robot> currentRobot;
         int xDim;
