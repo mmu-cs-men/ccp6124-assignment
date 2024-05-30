@@ -63,9 +63,11 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
     int x = (xPos == "random") ? rand() % xDim : std::stoi(xPos);
     int y = (yPos == "random") ? rand() % yDim : std::stoi(yPos);
 
+    std::string robotSymbol(1, 'A' + (robots.size() % 94));
+
     if (type == "Terminator")
     {
-        return std::make_shared<Terminator>(name, x, y);
+        return std::make_shared<Terminator>(name, x, y, robotSymbol);
     }
     else
     {
