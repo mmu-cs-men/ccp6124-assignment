@@ -4,6 +4,10 @@
 #include "DynamicArray.h"
 #include <memory>
 
+/**
+ * @class SplashScreen
+ * @brief A utility class for displaying the splash screen.
+ */
 struct SplashScreen
 {
         static void display(int xDim, int yDim, int maxSteps, int robotNum,

@@ -3,10 +3,26 @@
 #include <iostream>
 #include <memory>
 #include <stdexcept>
-
+/**
+ * @class DynamicArray
+ * @brief A dynamic array implementation that supports basic operations such as
+ * append, remove, and access by index, similar to `std::vector`.
+ *
+ * This class provides a dynamic array data structure with automatic resizing,
+ * copy and move semantics, and range-based for loop support.
+ *
+ * @note This class was made because we can't use std::vector for this
+ * assignment so I made a quick and dirty clone that probably sucks.
+ *
+ * @tparam T The type of elements stored in the array.
+ */
 template <typename T> class DynamicArray
 {
     public:
+        /**
+         * @brief Constructs a DynamicArray with an initial capacity of 10
+         * because that's a nice number.
+         */
         DynamicArray() : capacity(10), currentSize(0), data(new T[capacity])
         {
         }
@@ -21,6 +37,7 @@ template <typename T> class DynamicArray
             }
         }
 
+        // Memory safety is important, kids!
         DynamicArray &operator=(const DynamicArray &other)
         {
             if (this != &other)
@@ -61,6 +78,11 @@ template <typename T> class DynamicArray
             return *this;
         }
 
+        /**
+         * @brief Appends a new element to the end of the array.
+         *
+         * @param value The value to be appended.
+         */
         void append(const T &value)
         {
             if (currentSize >= capacity)
@@ -70,6 +92,12 @@ template <typename T> class DynamicArray
             data[currentSize++] = value;
         }
 
+        /**
+         * @brief Removes an element at the specified index.
+         *
+         * @param index The index of the element to be removed.
+         * @throws std::out_of_range if the index is out of range.
+         */
         void remove(size_t index)
         {
             if (index >= currentSize)
@@ -84,11 +112,17 @@ template <typename T> class DynamicArray
             currentSize--;
         }
 
+        /**
+         * @brief Gets the current size of the array.
+         *
+         * @return The number of elements in the array.
+         */
         size_t size() const
         {
             return currentSize;
         }
 
+        // Array index operator overload (and the const version down there!)
         T &operator[](size_t index)
         {
             if (index >= currentSize)
@@ -130,6 +164,10 @@ template <typename T> class DynamicArray
         size_t currentSize;
         std::unique_ptr<T[]> data;
 
+        /**
+         * @brief Resizes the array to double its current capacity like
+         * `std::vector`.
+         */
         void resize()
         {
             size_t newCapacity = capacity * 2;

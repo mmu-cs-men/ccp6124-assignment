@@ -28,9 +28,9 @@ class ShootingRobot : virtual public Robot
          * shooting action in that direction. There are no distance restrictions
          * in this function.
          *
-         * @exception `std::invalid_argument` - Will throw if dx and dy are 0
+         * @throws `std::invalid_argument` - Will throw if dx and dy are 0
          * (suicide).
-         * @exception `std::out_of_range` - Will throw if dx and dy are outside
+         * @throws `std::out_of_range` - Will throw if dx and dy are outside
          * of the battlefield.
          *
          * @param dx The x-offset from the robot's current position.

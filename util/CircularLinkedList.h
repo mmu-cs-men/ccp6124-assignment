@@ -3,13 +3,31 @@
 #include <memory>
 #include <stdexcept>
 
+/**
+ * @class CircularLinkedList
+ * @brief A circular linked list implementation.
+ *
+ * This class provides a circular linked list data structure with basic
+ * operations such as append, remove, replace, and traversal.
+ *
+ * @tparam T The type of elements stored in the list.
+ */
 template <typename T> class CircularLinkedList
 {
     public:
+        /**
+         * @brief Constructs an empty CircularLinkedList.
+         */
         CircularLinkedList() : head(nullptr), tail(nullptr), list_size(0)
         {
         }
 
+        /**
+         * @brief Replaces the first occurrence of oldValue with newValue.
+         *
+         * @param oldValue The value to be replaced.
+         * @param newValue The value to replace with.
+         */
         void replace(const T &oldValue, const T &newValue)
         {
             if (!head)
@@ -27,6 +45,11 @@ template <typename T> class CircularLinkedList
             } while (current != head);
         }
 
+        /**
+         * @brief Appends a new element to the end of the list.
+         *
+         * @param data The data to be appended.
+         */
         void append(const T &data)
         {
             auto newNode = std::make_shared<Node>(data);
@@ -45,12 +68,22 @@ template <typename T> class CircularLinkedList
             ++list_size;
         }
 
+        /**
+         * @brief Checks if the list is empty.
+         *
+         * @return True if the list is empty, false otherwise.
+         */
         bool isEmpty() const
         {
             return head == nullptr;
         }
 
-        // Ooooh ;)
+        /**
+         * @brief Gets the data of the head element.
+         *
+         * @return The data of the head element.
+         * @throws std::runtime_error if the list is empty.
+         */
         T getHead() const
         {
             if (!head)
@@ -58,6 +91,11 @@ template <typename T> class CircularLinkedList
             return head->data;
         }
 
+        /**
+         * @brief Removes the first occurrence of the specified data.
+         *
+         * @param data The data to be removed.
+         */
         void remove(const T &data)
         {
             if (!head)
@@ -97,6 +135,13 @@ template <typename T> class CircularLinkedList
             } while (current != head);
         }
 
+        /**
+         * @brief Gets the data of the element after the specified data.
+         *
+         * @param data The data whose next element is to be retrieved.
+         * @return The data of the next element.
+         * @throws std::runtime_error if the list is empty or data is not found.
+         */
         T next(const T &data) const
         {
             if (!head)
@@ -115,6 +160,11 @@ template <typename T> class CircularLinkedList
             throw std::runtime_error("Data not found in the list");
         }
 
+        /**
+         * @brief Gets the size of the list.
+         *
+         * @return The number of elements in the list.
+         */
         std::size_t size() const
         {
             return list_size;
