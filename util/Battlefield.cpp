@@ -141,6 +141,8 @@ void Battlefield::runSimulation(bool asap)
         nextRobot();
         currentStep++;
     }
+
+    std::cout << std::endl << "Simulation has ended." << std::endl;
 }
 
 std::shared_ptr<Cell> Battlefield::getCell(int x, int y) const
