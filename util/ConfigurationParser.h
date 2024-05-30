@@ -2,7 +2,10 @@
 
 #include "../robots/base/Robot.h"
 #include "DynamicArray.h"
+#include <fstream>
 #include <memory>
+#include <sstream>
+#include <stdexcept>
 #include <string>
 
 class ConfigurationParser
@@ -21,4 +24,8 @@ class ConfigurationParser
         int maxSteps;
         int robotNum;
         DynamicArray<std::shared_ptr<Robot>> robots;
+        std::shared_ptr<Robot> createRobot(const std::string &type,
+                                           const std::string &name,
+                                           const std::string &xPos,
+                                           const std::string &yPos);
 };
