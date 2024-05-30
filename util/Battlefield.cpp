@@ -124,7 +124,7 @@ void Battlefield::respawnRobot()
 
 void Battlefield::runSimulation(bool asap)
 {
-    while (currentStep <= maxSteps || getParticipatingRobots() > 1)
+    while (currentStep <= maxSteps && getParticipatingRobots() > 1)
     {
         respawnRobot();
 
