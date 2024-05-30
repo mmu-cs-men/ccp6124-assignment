@@ -18,6 +18,8 @@ class Robot : public std::enable_shared_from_this<Robot>
         void setXPos(int xPos);
         void setYPos(int yPos);
         std::string getSymbol() const;
+        int getLives() const;
+        void decrementLives();
 
     protected:
         std::string name;
@@ -25,4 +27,5 @@ class Robot : public std::enable_shared_from_this<Robot>
         int yPos;
         std::string symbol;
         std::shared_ptr<Battlefield> battlefield;
+        int lives;
 };

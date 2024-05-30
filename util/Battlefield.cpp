@@ -29,12 +29,14 @@ void Battlefield::killRobot(std::shared_ptr<Cell> cell)
 
     std::shared_ptr<Robot> robot = cell->getRobot();
     cell->removeRobot();
-
-    respawnQueueStr.append(robot->getSymbol());
-
     robots.remove(robot);
 
-    respawnQueue.enqueue(robot);
+    if (robot->getLives() > 0)
+    {
+        robot->decrementLives();
+        respawnQueueStr.append(robot->getSymbol());
+        respawnQueue.enqueue(robot);
+    }
 
     logEvent(robot->getName() + " (" + robot->getSymbol() + ") was killed!");
 }

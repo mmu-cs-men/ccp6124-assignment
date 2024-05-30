@@ -4,7 +4,7 @@
 #include <string>
 
 Robot::Robot(std::string name, int xPos, int yPos, std::string symbol)
-    : name(name), xPos(xPos), yPos(yPos), symbol(symbol)
+    : name(name), xPos(xPos), yPos(yPos), symbol(symbol), lives(3)
 {
 }
 
@@ -41,4 +41,14 @@ void Robot::setYPos(int yPos)
 std::string Robot::getSymbol() const
 {
     return symbol;
+}
+
+int Robot::getLives() const
+{
+    return lives;
+}
+
+void Robot::decrementLives()
+{
+    lives--;
 }
