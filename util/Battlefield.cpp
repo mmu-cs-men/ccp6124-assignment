@@ -94,6 +94,7 @@ void Battlefield::displayBattlefield()
     {
         std::cout << eventQueue.dequeue() << std::endl;
     }
+    std::cout << std::endl;
 }
 
 void Battlefield::respawnRobot()
