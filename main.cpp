@@ -3,9 +3,13 @@
 #include "util/Battlefield.h"
 #include <memory>
 
+// clang-format off
+// g++ main.cpp util/Battlefield.cpp robots/base/Robot.cpp robots/Terminator.cpp util/Cell.cpp util/Helper.cpp robots/base/SeeingRobot.cpp robots/base/SteppingRobot.cpp -o main
+// clang-format on
+
 int main()
 {
-    Battlefield battlefield(10, 10, 100);
+    Battlefield battlefield(50, 50, 10);
     std::shared_ptr<Battlefield> pBattlefield =
         std::make_shared<Battlefield>(battlefield);
 
