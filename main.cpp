@@ -9,7 +9,7 @@
 
 int main()
 {
-    Battlefield battlefield(50, 50, 10);
+    Battlefield battlefield(150, 83, 10);
     std::shared_ptr<Battlefield> pBattlefield =
         std::make_shared<Battlefield>(battlefield);
 

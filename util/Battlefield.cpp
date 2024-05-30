@@ -70,7 +70,7 @@ int Battlefield::getParticipatingRobots() const
 
 void Battlefield::displayBattlefield()
 {
-    std::string border(xDim + 2, '*');
+    std::string border(yDim + 2, '*');
     std::cout << border << std::endl;
     for (int i = 0; i < xDim; i++)
     {
