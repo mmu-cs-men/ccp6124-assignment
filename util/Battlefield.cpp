@@ -47,6 +47,7 @@ void Battlefield::addRobot(std::shared_ptr<Robot> robot)
     }
 
     robots.append(robot);
+    battlefieldMatrix[robot->getXPos()][robot->getYPos()]->placeRobot(robot);
 }
 
 void Battlefield::nextRobot()
@@ -114,6 +115,8 @@ void Battlefield::respawnRobot()
 
     robot->setXPos(randomX);
     robot->setYPos(randomY);
+    battlefieldMatrix[randomX][randomY]->placeRobot(robot);
+
     robots.append(robot);
     eventQueue.enqueue(robot->getName() + " respawned");
 }
