@@ -36,3 +36,6 @@
 
 # VSCode
 .vscode/
+
+# Bugs
+bugs.txt
