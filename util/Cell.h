@@ -13,6 +13,8 @@ class Cell
         void removeRobot();
         std::shared_ptr<Robot> getRobot() const;
         std::string getSymbol() const;
+        int getX() const;
+        int getY() const;
 
     private:
         std::shared_ptr<Robot> robot;

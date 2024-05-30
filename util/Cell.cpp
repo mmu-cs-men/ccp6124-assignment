@@ -28,3 +28,13 @@ std::string Cell::getSymbol() const
 {
     return robot ? robot->getSymbol() : " ";
 }
+
+int Cell::getX() const
+{
+    return x;
+}
+
+int Cell::getY() const
+{
+    return y;
+}
