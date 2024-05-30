@@ -30,7 +30,7 @@ void Terminator::executeActionPlan()
     }
 
     Direction randomDirection =
-        static_cast<Direction>(Helper::generateRandomNumber(1, 7));
+        static_cast<Direction>(Helper::generateRandomNumber(0, 7));
 
     stomp(randomDirection);
 }
