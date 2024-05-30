@@ -17,7 +17,7 @@ class Battlefield
         void addRobot(std::shared_ptr<Robot> robot);
         void runSimulation(bool asap);
         std::shared_ptr<Cell> getCell(int x, int y) const;
-        void logEvent(const std::string &event);
+        void logEvent(const std::string event);
         int getXDim() const;
         int getYDim() const;
         void killRobot(std::shared_ptr<Cell> cell);
