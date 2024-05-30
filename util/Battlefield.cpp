@@ -110,8 +110,8 @@ void Battlefield::respawnRobot()
     int randomX, randomY;
     do
     {
-        randomX = Helper::generateRandomNumber(0, xDim);
-        randomY = Helper::generateRandomNumber(0, yDim);
+        randomX = Helper::generateRandomNumber(0, (xDim - 1));
+        randomY = Helper::generateRandomNumber(0, (yDim - 1));
     } while (battlefieldMatrix[randomX][randomY]->isOccupied());
 
     robot->setXPos(randomX);
