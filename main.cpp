@@ -5,7 +5,7 @@
 #include <memory>
 
 // clang-format off
-// g++ main.cpp util/Battlefield.cpp robots/base/Robot.cpp robots/Terminator.cpp util/Cell.cpp util/Helper.cpp robots/base/SeeingRobot.cpp robots/base/SteppingRobot.cpp -o main
+// g++ main.cpp util/Battlefield.cpp robots/base/Robot.cpp robots/Terminator.cpp util/Cell.cpp util/Helper.cpp robots/base/SeeingRobot.cpp robots/base/SteppingRobot.cpp util/ConfigurationParser.cpp -o main
 // clang-format on
 
 int main()
