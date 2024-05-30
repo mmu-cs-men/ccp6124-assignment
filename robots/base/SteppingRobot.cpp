@@ -29,7 +29,7 @@ void SteppingRobot::stomp(int x, int y)
         battlefield->logEvent(name + " (" + symbol + ") stomped on (" +
                               std::to_string(x) + ", " + std::to_string(y) +
                               ")");
-        battlefield->killRobot(targetCell);
+        battlefield->killRobot(shared_from_this(), targetCell);
     }
     else
     {

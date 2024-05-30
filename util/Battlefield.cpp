@@ -5,7 +5,7 @@
 #include <stdexcept>
 
 Battlefield::Battlefield(int xDim, int yDim, int maxSteps)
-    : xDim(xDim), yDim(yDim), maxSteps(maxSteps)
+    : xDim(xDim), yDim(yDim), maxSteps(maxSteps), currentStep(1)
 {
     for (int i = 0; i < xDim; i++)
     {
@@ -18,7 +18,8 @@ Battlefield::Battlefield(int xDim, int yDim, int maxSteps)
     }
 }
 
-void Battlefield::killRobot(std::shared_ptr<Cell> cell)
+void Battlefield::killRobot(std::shared_ptr<Robot> killer,
+                            std::shared_ptr<Cell> cell)
 {
     // This should never happen
     if (!cell->isOccupied())
@@ -30,6 +31,20 @@ void Battlefield::killRobot(std::shared_ptr<Cell> cell)
     std::shared_ptr<Robot> robot = cell->getRobot();
     cell->removeRobot();
     robots.remove(robot);
+
+    killer->incrementKillCount();
+    std::shared_ptr<Robot> upgradedRobot = killer->upgrade();
+
+    if (upgradedRobot)
+    {
+        upgradedRobot->setXPos(killer->getXPos());
+        upgradedRobot->setYPos(killer->getYPos());
+        battlefieldMatrix[killer->getXPos()][killer->getYPos()]->placeRobot(
+            upgradedRobot);
+        robots.replace(killer, upgradedRobot);
+        logEvent(killer->getName() + " (" + killer->getSymbol() +
+                 ") has been upgraded!!!");
+    }
 
     if (robot->getLives() > 0)
     {

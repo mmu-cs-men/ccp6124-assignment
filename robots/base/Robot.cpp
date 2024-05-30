@@ -4,7 +4,7 @@
 #include <string>
 
 Robot::Robot(std::string name, int xPos, int yPos, std::string symbol)
-    : name(name), xPos(xPos), yPos(yPos), symbol(symbol), lives(3)
+    : name(name), xPos(xPos), yPos(yPos), symbol(symbol), lives(3), killCount(0)
 {
 }
 
@@ -51,4 +51,14 @@ int Robot::getLives() const
 void Robot::decrementLives()
 {
     lives--;
+}
+
+std::shared_ptr<Robot> Robot::upgrade()
+{
+    return nullptr;
+}
+
+void Robot::incrementKillCount()
+{
+    killCount++;
 }

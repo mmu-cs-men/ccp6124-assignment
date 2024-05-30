@@ -27,7 +27,7 @@ void ShootingRobot::fire(int dx, int dy)
     std::shared_ptr<Cell> targetCell = battlefield->getCell(newX, newY);
     if (targetCell->isOccupied())
     {
-        battlefield->killRobot(targetCell);
+        battlefield->killRobot(shared_from_this(), targetCell);
     }
 
     battlefield->logEvent(name + " (" + symbol + ") fired at (" +

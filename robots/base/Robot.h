@@ -11,6 +11,7 @@ class Robot : public std::enable_shared_from_this<Robot>
         Robot(std::string name, int xPos, int yPos, std::string symbol);
         void addBattlefield(std::shared_ptr<Battlefield> battlefield);
         virtual void executeActionPlan() = 0;
+        virtual std::shared_ptr<Robot> upgrade();
         virtual ~Robot() = default;
         std::string getName() const;
         int getXPos() const;
@@ -20,6 +21,7 @@ class Robot : public std::enable_shared_from_this<Robot>
         std::string getSymbol() const;
         int getLives() const;
         void decrementLives();
+        void incrementKillCount();
 
     protected:
         std::string name;
@@ -28,4 +30,5 @@ class Robot : public std::enable_shared_from_this<Robot>
         std::string symbol;
         std::shared_ptr<Battlefield> battlefield;
         int lives;
+        int killCount;
 };

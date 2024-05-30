@@ -10,6 +10,23 @@ template <typename T> class CircularLinkedList
         {
         }
 
+        void replace(const T &oldValue, const T &newValue)
+        {
+            if (!head)
+                return;
+
+            auto current = head;
+            do
+            {
+                if (current->data == oldValue)
+                {
+                    current->data = newValue;
+                    return;
+                }
+                current = current->next;
+            } while (current != head);
+        }
+
         void append(const T &data)
         {
             auto newNode = std::make_shared<Node>(data);

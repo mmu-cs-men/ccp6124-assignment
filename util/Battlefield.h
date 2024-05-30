@@ -20,7 +20,8 @@ class Battlefield
         void logEvent(const std::string event);
         int getXDim() const;
         int getYDim() const;
-        void killRobot(std::shared_ptr<Cell> cell);
+        void killRobot(std::shared_ptr<Robot> killer,
+                       std::shared_ptr<Cell> cell);
 
     private:
         void nextRobot();
@@ -36,5 +37,5 @@ class Battlefield
         int xDim;
         int yDim;
         int maxSteps;
-        int currentStep = 1;
+        int currentStep;
 };
