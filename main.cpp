@@ -1,6 +1,7 @@
 #include "robots/Terminator.h"
 #include "robots/base/Robot.h"
 #include "util/Battlefield.h"
+#include "util/ConfigurationParser.h"
 #include <memory>
 
 // clang-format off
@@ -9,20 +10,22 @@
 
 int main()
 {
-    Battlefield battlefield(150, 83, 10);
-    std::shared_ptr<Battlefield> pBattlefield =
-        std::make_shared<Battlefield>(battlefield);
+    ConfigurationParser parser("config.txt");
+    int xDim = parser.getXDim();
+    int yDim = parser.getYDim();
+    int maxSteps = parser.getMaxSteps();
+    int robotNum = parser.getRobotNum();
+    DynamicArray<std::shared_ptr<Robot>> robots = parser.getRobots();
 
-    std::shared_ptr<Robot> robot1 =
-        std::make_shared<Terminator>("Zedd", 5, 5, "🤖");
-    std::shared_ptr<Robot> robot2 =
-        std::make_shared<Terminator>("Star", 1, 3, "❤️");
+    auto battlefield = std::make_shared<Battlefield>(xDim, yDim, maxSteps);
 
-    robot1->addBattlefield(pBattlefield);
-    robot2->addBattlefield(pBattlefield);
+    for (auto &robot : robots)
+    {
+        robot->addBattlefield(battlefield);
+        battlefield->addRobot(robot);
+    }
 
-    pBattlefield->addRobot(robot1);
-    pBattlefield->addRobot(robot2);
+    // TODO: Add splash screen here
 
-    pBattlefield->runSimulation(false);
+    battlefield->runSimulation(false);
 }
