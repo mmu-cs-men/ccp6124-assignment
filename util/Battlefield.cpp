@@ -148,7 +148,7 @@ std::shared_ptr<Cell> Battlefield::getCell(int x, int y) const
     return battlefieldMatrix[x][y];
 }
 
-void Battlefield::logEvent(const std::string &event)
+void Battlefield::logEvent(const std::string event)
 {
     eventQueue.enqueue(event);
 }
