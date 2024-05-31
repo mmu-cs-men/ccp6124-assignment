@@ -23,8 +23,9 @@ class SteppingRobot : virtual public Robot
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
+         * @param type The type of the robot.
          */
-        SteppingRobot(std::string name, int xPos, int yPos, std::string symbol);
+        SteppingRobot(std::string name, int xPos, int yPos, std::string symbol,std::string type);
 
         /**
          * @brief Performs a stomping action at the specified coordinates.

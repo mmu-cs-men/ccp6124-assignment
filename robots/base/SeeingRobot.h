@@ -21,8 +21,9 @@ class SeeingRobot : virtual public Robot
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
+         * @param type The type of the robot.
          */
-        SeeingRobot(std::string name, int xPos, int yPos, std::string symbol);
+        SeeingRobot(std::string name, int xPos, int yPos, std::string symbol, std::string type);
 
         /**
          * @brief Looks around the robot's current position.
