@@ -131,6 +131,7 @@ class Robot : public std::enable_shared_from_this<Robot>
 
     protected:
         std::string name;
+        std::string type;
         int xPos;
         int yPos;
         std::string symbol;

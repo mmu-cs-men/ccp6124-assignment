@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-Robot::Robot(std::string name, int xPos, int yPos, std::string symbol)
+Robot::Robot(std::string name, int xPos, int yPos, std::string symbol, std::string type)
     : name(name), xPos(xPos), yPos(yPos), symbol(symbol), lives(3), killCount(0)
 {
 }
