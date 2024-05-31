@@ -18,6 +18,13 @@ std::string Robot::getName() const
     return name;
 }
 
+std::string Robot::getType() const
+{
+    return type;
+}
+
+
+
 int Robot::getXPos() const
 {
     return xPos;
