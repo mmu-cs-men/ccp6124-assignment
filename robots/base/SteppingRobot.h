@@ -34,14 +34,17 @@ class SteppingRobot : virtual public Robot
          * in that position. Else, it will simply move the robot similar to
          * move().
          *
-         * If you supply invalid coordinates (moving further than 3x3, moving
-         * out of battlefield), the robot will not move. Instead, your illegal
-         * action will be displayed in the event log.
+         * If you supply invalid coordinates (moving out of battlefield), the
+         * robot will not move. Instead, your illegal action will be displayed
+         * in the event log.
          *
          * @param x The x-coordinate where the stomping action will be
          * performed.
          * @param y The y-coordinate where the stomping action will be
          * performed.
+         *
+         * @throws std::invalid_argument if x and y are beyond a 3x3 area around
+         * the robot.
          *
          * @note Unlike some other functions in this assignment, this function
          * takes in absolute coordinates. They are not relative to the robot.
