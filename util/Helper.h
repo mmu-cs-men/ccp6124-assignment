@@ -30,5 +30,9 @@ struct Helper
          */
         static int generateRandomNumber(int a, int b);
 
-        static void appendStrToFile(std::string str, std::string filePath);
+        static void appendStrToLogFile(std::string str);
+
+        static void updateLogCount();
+
+        static int logCount;
 };

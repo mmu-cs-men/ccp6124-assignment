@@ -112,19 +112,19 @@ class Battlefield
         void nextRobot();
 
         /**
-         * @brief Displays the current state of the battlefield.
+         * @brief Constructs a string of the current state of the battlefield.
          *
-         * Prints the battlefield matrix, the current step, the respawn queue,
-         * and the event log.
+         * @returns The battlefield matrix, the current step, the respawn queue,
+         * and the event log a string.
          */
-        void displayBattlefield();
+        std::string getBattlefieldString();
 
         /**
          * @brief Gets the number of participating robots.
          *
          * @return The number of robots currently participating in the
-         * simulation, including robots in the respawn queue. Does not include
-         * robots that have died and exhausted their lives.
+         * simulation, including robots in the respawn queue. Does not
+         * include robots that have died and exhausted their lives.
          */
         int getParticipatingRobots() const;
 
