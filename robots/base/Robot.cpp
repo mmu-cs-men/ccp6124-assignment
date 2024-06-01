@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-Robot::Robot(std::string name, int xPos, int yPos, std::string symbol, std::string type)
+Robot::Robot(std::string name, int xPos, int yPos, std::string symbol)
     : name(name), xPos(xPos), yPos(yPos), symbol(symbol), lives(3), killCount(0)
 {
 }
@@ -17,13 +17,6 @@ std::string Robot::getName() const
 {
     return name;
 }
-
-std::string Robot::getType() const
-{
-    return type;
-}
-
-
 
 int Robot::getXPos() const
 {

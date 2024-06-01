@@ -8,6 +8,6 @@
 class Terminator : public SeeingRobot, public SteppingRobot
 {
     public:
-        Terminator(std::string name, int xPos, int yPos, std::string symbol, std::string type);
+        Terminator(std::string name, int xPos, int yPos, std::string symbol);
         void executeActionPlan() override;
 };

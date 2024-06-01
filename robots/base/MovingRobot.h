@@ -24,9 +24,8 @@ class MovingRobot : virtual public Robot
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
-         * @param type The type of the robot.
          */
-        MovingRobot(std::string name, int xPos, int yPos, std::string symbol, std::string type);
+        MovingRobot(std::string name, int xPos, int yPos, std::string symbol);
 
         /**
          * @brief Moves the robot to a specified position.

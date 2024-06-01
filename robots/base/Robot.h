@@ -23,7 +23,7 @@ class Robot : public std::enable_shared_from_this<Robot>
          * @param symbol The symbol representing the robot.
          * @param type The type of the robot.
          */
-        Robot(std::string name,int xPos, int yPos, std::string symbol, std::string type);
+        Robot(std::string name,int xPos, int yPos, std::string symbol);
 
         /**
          * @brief Populates the battlefield member. This should only ever be
@@ -131,7 +131,6 @@ class Robot : public std::enable_shared_from_this<Robot>
 
     protected:
         std::string name;
-        std::string type;
         int xPos;
         int yPos;
         std::string symbol;

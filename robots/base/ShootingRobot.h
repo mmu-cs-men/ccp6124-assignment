@@ -18,9 +18,8 @@ class ShootingRobot : virtual public Robot
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
-         * @param type The type of the robot.
          */
-        ShootingRobot(std::string name, int xPos, int yPos, std::string symbol, std::string type);
+        ShootingRobot(std::string name, int xPos, int yPos, std::string symbol);
 
         /**
          * @brief Fires at a target relative to the robot's current position.

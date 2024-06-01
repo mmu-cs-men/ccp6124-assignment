@@ -1,8 +1,8 @@
 #include "Terminator.h"
 
-Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol, std::string type)
-    : SeeingRobot(name, xPos, yPos, symbol,type),
-      SteppingRobot(name, xPos, yPos, symbol,type), Robot(name, xPos, yPos, symbol,type)
+Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol)
+    : SeeingRobot(name, xPos, yPos, symbol),
+      SteppingRobot(name, xPos, yPos, symbol), Robot(name, xPos, yPos, symbol)
 {
 }
 
