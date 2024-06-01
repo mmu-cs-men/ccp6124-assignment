@@ -11,9 +11,8 @@ void SteppingRobot::stomp(int x, int y)
 {
     if (abs(x - xPos) > 1 || abs(y - yPos) > 1)
     {
-        battlefield->logEvent(name + " (" + symbol +
-                              ") attempted an illegal stomp");
-        return;
+        throw std::invalid_argument(name + " (" + symbol +
+                                    ") attempted an illegal stomp");
     }
     else if (x < 0 || x >= battlefield->getXDim() || y < 0 ||
              y >= battlefield->getYDim())
