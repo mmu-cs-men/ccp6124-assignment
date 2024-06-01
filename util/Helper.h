@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 /**
  * @class Helper
  * @brief A utility class providing helper functions.
@@ -27,4 +29,10 @@ struct Helper
          * - If a > b, the function will segfault, don't be a dummy.
          */
         static int generateRandomNumber(int a, int b);
+
+        static void appendStrToLogFile(std::string str);
+
+        static void updateLogCount();
+
+        static int logCount;
 };

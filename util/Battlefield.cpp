@@ -83,35 +83,39 @@ int Battlefield::getParticipatingRobots() const
     return robots.size() + respawnQueue.size();
 }
 
-void Battlefield::displayBattlefield()
+std::string Battlefield::getBattlefieldString()
 {
+    std::string output;
     std::string border(yDim + 2, '*');
-    std::cout << border << std::endl;
+    output += border + "\n";
     for (int i = 0; i < xDim; i++)
     {
-        std::cout << "*";
+        output += "*";
         for (int j = 0; j < yDim; j++)
         {
-            std::cout << battlefieldMatrix[i][j]->getSymbol();
+            output += battlefieldMatrix[i][j]->getSymbol();
         }
-        std::cout << "*" << std::endl;
+        output += "*\n";
     }
-    std::cout << border << std::endl << std::endl;
+    output += border + "\n\n";
 
-    std::cout << "Steps: " << currentStep << "/" << maxSteps << std::endl;
-    std::cout << "Respawn Queue: ";
+    output += "Steps: " + std::to_string(currentStep) + "/" +
+              std::to_string(maxSteps) + "\n";
+    output += "Respawn Queue: ";
     for (const std::string &robotSymbol : respawnQueueStr)
     {
-        std::cout << robotSymbol;
+        output += robotSymbol;
     }
-    std::cout << std::endl << std::endl;
+    output += "\n\n";
 
-    std::cout << "Event Log: " << std::endl;
+    output += "Event Log: \n";
     while (!eventQueue.isEmpty())
     {
-        std::cout << eventQueue.dequeue() << std::endl;
+        output += eventQueue.dequeue() + "\n";
     }
-    std::cout << std::endl;
+    output += "\n";
+
+    return output;
 }
 
 void Battlefield::respawnRobot()
@@ -147,12 +151,17 @@ void Battlefield::runSimulation(bool asap)
 
         currentRobot->executeActionPlan();
 
-        displayBattlefield();
-
         if (!asap)
         {
+            std::string battlefieldString = getBattlefieldString();
+            std::cout << battlefieldString;
+            Helper::appendStrToLogFile(battlefieldString);
             std::cout << "Press Enter to continue to next turn...";
             std::cin.get();
+        }
+        else
+        {
+            Helper::appendStrToLogFile(getBattlefieldString());
         }
 
         nextRobot();
