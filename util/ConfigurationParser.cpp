@@ -1,5 +1,6 @@
 #include "ConfigurationParser.h"
 #include "../robots/Terminator.h"
+#include "Helper.h"
 
 ConfigurationParser::ConfigurationParser(const std::string &filePath)
 {
@@ -60,8 +61,10 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
                                                         const std::string &xPos,
                                                         const std::string &yPos)
 {
-    int x = (xPos == "random") ? rand() % xDim : std::stoi(xPos);
-    int y = (yPos == "random") ? rand() % yDim : std::stoi(yPos);
+    int x = (xPos == "random") ? Helper::generateRandomNumber(0, xDim - 1)
+                               : std::stoi(xPos);
+    int y = (yPos == "random") ? Helper::generateRandomNumber(0, yDim - 1)
+                               : std::stoi(yPos);
 
     std::string robotSymbol(1, 'A' + (robots.size() % 94));
 
