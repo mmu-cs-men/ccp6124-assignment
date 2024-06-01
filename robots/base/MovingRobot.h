@@ -30,13 +30,15 @@ class MovingRobot : virtual public Robot
         /**
          * @brief Moves the robot to a specified position.
          *
-         * If you supply invalid coordinates (moving further than 3x3, moving
-         * out of battlefield, moving to occupied position), the robot will not
-         * move. Instead, your illegal action will be displayed in the event
-         * log.
+         * If you supply invalid coordinates (moving out of battlefield, moving
+         * to occupied position), the robot will not move. Instead, your illegal
+         * action will be displayed in the event log.
          *
          * @param x The new absolute x-coordinate of the robot.
          * @param y The new absolute y-coordinate of the robot.
+         *
+         * @throws std::invalid_argument if x and y are beyond a 3x3 area around
+         * the robot.
          *
          * @note Unlike some other functions in this assignment, this function
          * takes in absolute coordinates. They are not relative to the robot.
