@@ -153,7 +153,9 @@ void Battlefield::runSimulation(bool asap)
 
         if (!asap)
         {
-            std::cout << getBattlefieldString();
+            std::string battlefieldString = getBattlefieldString();
+            std::cout << battlefieldString;
+            Helper::appendStrToLogFile(battlefieldString);
             std::cout << "Press Enter to continue to next turn...";
             std::cin.get();
         }
