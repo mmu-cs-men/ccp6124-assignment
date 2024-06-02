@@ -6,7 +6,7 @@ Name: Sivananthan Seliyan
 ID: 1221102320
 Lecture Section: TC1L
 Tutorial Section: TT1L
-Email: 1221102320student.mmu.edu.my
+Email: 1221102320@student.mmu.edu.my
 Phone: 012-364-0956
 **********|**********|**********/
 

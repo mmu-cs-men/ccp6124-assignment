@@ -54,6 +54,12 @@ void Battlefield::killRobot(std::shared_ptr<Robot> killer,
         battlefieldMatrix[killer->getXPos()][killer->getYPos()]->placeRobot(
             upgradedRobot);
         robots.replace(killer, upgradedRobot);
+
+        if (killer == currentRobot)
+        {
+            currentRobot = upgradedRobot;
+        }
+
         logEvent(killer->getName() + " (" + killer->getSymbol() +
                  ") has been upgraded!!!");
     }
