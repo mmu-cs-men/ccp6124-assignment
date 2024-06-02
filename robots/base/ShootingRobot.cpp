@@ -1,3 +1,15 @@
+/**********|**********|**********|
+Program: ShootingRobot.cpp
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Hawash, Abdullah
+ID: 1221102209
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102209@student.mmu.edu.my
+Phone: 017-250-3208
+**********|**********|**********/
+
 #include "ShootingRobot.h"
 #include "../../util/Battlefield.h"
 #include <stdexcept>
