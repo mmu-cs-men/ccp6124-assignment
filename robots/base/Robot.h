@@ -21,9 +21,8 @@ class Robot : public std::enable_shared_from_this<Robot>
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
-         * @param type The type of the robot.
          */
-        Robot(std::string name,int xPos, int yPos, std::string symbol);
+        Robot(std::string name, int xPos, int yPos, std::string symbol);
 
         /**
          * @brief Populates the battlefield member. This should only ever be
@@ -69,13 +68,6 @@ class Robot : public std::enable_shared_from_this<Robot>
          * @return The name of the robot.
          */
         std::string getName() const;
-
-        /**
-         * @brief Gets the type of the robot.
-         *
-         * @return The type of the robot.
-         */
-        std::string getType() const;
 
         /**
          * @brief Gets the x-coordinate of the robot.

@@ -70,7 +70,7 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
 
     if (type == "Terminator")
     {
-        return std::make_shared<Terminator>(name, x, y, robotSymbol, type);
+        return std::make_shared<Terminator>(name, x, y, robotSymbol);
     }
     else
     {
