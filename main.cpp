@@ -48,6 +48,12 @@ int main()
     }
 
     SplashScreen::display(xDim, yDim, maxSteps, robotNum, robots);
+    std::cout << std::endl;
+
+    std::cout << "Please select what would you like to do:" << std::endl;
+    std::cout << "1. Run simulation step-by-step" << std::endl;
+    std::cout << "2. Run simulation as fast as possible" << std::endl;
+    std::cout << "3. Quit program" << std::endl << std::endl;
 
     while (true)
     {
@@ -66,7 +72,7 @@ int main()
         case 3:
             return 0;
         default:
-            std::cout << "Invalid input! Try again." << std::endl;
+            std::cout << "\nInvalid input! Try again." << std::endl;
         }
     }
 }

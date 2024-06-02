@@ -24,7 +24,7 @@ void SplashScreen::display(int xDim, int yDim, int maxSteps, int robotNum,
 
     std::cout << std::endl;
 
-    std::cout << "Welcome to Robot War Simulator.This is a game made for our "
+    std::cout << "Welcome to Robot War Simulator. This is a game made for our "
                  "CPP6124 assignment\n";
 
     std::cout << "Based on the configuration file, the following settings will "
