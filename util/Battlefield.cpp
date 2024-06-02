@@ -1,3 +1,15 @@
+/**********|**********|**********|
+Program: Battlefield.cpp
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
+
 #include "Battlefield.h"
 #include "../robots/base/Robot.h"
 #include "Helper.h"
@@ -87,7 +99,8 @@ std::string Battlefield::getBattlefieldString()
 {
     std::string output;
     std::string border(yDim + 2, '*');
-    output += border + "\n";
+    output += border + "
+";
     for (int i = 0; i < xDim; i++)
     {
         output += "*";
@@ -95,25 +108,34 @@ std::string Battlefield::getBattlefieldString()
         {
             output += battlefieldMatrix[i][j]->getSymbol();
         }
-        output += "*\n";
+        output += "*
+";
     }
-    output += border + "\n\n";
+    output += border + "
+
+";
 
     output += "Steps: " + std::to_string(currentStep) + "/" +
-              std::to_string(maxSteps) + "\n";
+              std::to_string(maxSteps) + "
+";
     output += "Respawn Queue: ";
     for (const std::string &robotSymbol : respawnQueueStr)
     {
         output += robotSymbol;
     }
-    output += "\n\n";
+    output += "
 
-    output += "Event Log: \n";
+";
+
+    output += "Event Log: 
+";
     while (!eventQueue.isEmpty())
     {
-        output += eventQueue.dequeue() + "\n";
+        output += eventQueue.dequeue() + "
+";
     }
-    output += "\n";
+    output += "
+";
 
     return output;
 }
