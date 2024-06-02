@@ -15,8 +15,10 @@ Phone: 017-366-6523
 #include <memory>
 #include <string>
 
-Robot::Robot(std::string name, int xPos, int yPos, std::string symbol)
-    : name(name), xPos(xPos), yPos(yPos), symbol(symbol), lives(3), killCount(0)
+Robot::Robot(std::string name, int xPos, int yPos, std::string symbol,
+             std::string type)
+    : name(name), xPos(xPos), yPos(yPos), symbol(symbol), type(type), lives(3),
+      killCount(0)
 {
 }
 

@@ -13,9 +13,11 @@ Phone: 017-366-6523
 #include "Terminator.h"
 #include "TerminatorRoboCop.h"
 
-Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol)
-    : SeeingRobot(name, xPos, yPos, symbol),
-      SteppingRobot(name, xPos, yPos, symbol), Robot(name, xPos, yPos, symbol)
+Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol,
+                       std::string type)
+    : SeeingRobot(name, xPos, yPos, symbol, type),
+      SteppingRobot(name, xPos, yPos, symbol, type),
+      Robot(name, xPos, yPos, symbol, type)
 {
 }
 
@@ -57,7 +59,9 @@ std::shared_ptr<Robot> Terminator::upgrade()
 {
     if (killCount >= 3)
     {
-        return std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol);
+        // type shouldn't matter here anymore since it won't be used
+        return std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol,
+                                                   "TerminatorRoboCop");
     }
     return nullptr;
 }

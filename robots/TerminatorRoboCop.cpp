@@ -14,10 +14,11 @@ Phone: 017-366-6523
 #include "../util/Helper.h"
 
 TerminatorRoboCop::TerminatorRoboCop(std::string name, int xPos, int yPos,
-                                     std::string symbol)
-    : ShootingRobot(name, xPos, yPos, symbol),
-      SeeingRobot(name, xPos, yPos, symbol),
-      SteppingRobot(name, xPos, yPos, symbol), Robot(name, xPos, yPos, symbol)
+                                     std::string symbol, std::string type)
+    : ShootingRobot(name, xPos, yPos, symbol, type),
+      SeeingRobot(name, xPos, yPos, symbol, type),
+      SteppingRobot(name, xPos, yPos, symbol, type),
+      Robot(name, xPos, yPos, symbol, type)
 {
 }
 

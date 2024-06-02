@@ -22,6 +22,6 @@ class TerminatorRoboCop : public SeeingRobot,
 {
     public:
         TerminatorRoboCop(std::string name, int xPos, int yPos,
-                          std::string symbol);
+                          std::string symbol, std::string type);
         void executeActionPlan() override;
 };

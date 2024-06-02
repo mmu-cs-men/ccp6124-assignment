@@ -15,8 +15,8 @@ Phone: 017-366-6523
 #include <stdexcept>
 
 ShootingRobot::ShootingRobot(std::string name, int xPos, int yPos,
-                             std::string symbol)
-    : Robot(name, xPos, yPos, symbol)
+                             std::string symbol, std::string type)
+    : Robot(name, xPos, yPos, symbol, type)
 {
 }
 

@@ -20,7 +20,8 @@ Phone: 017-366-6523
 class Terminator : public SeeingRobot, public SteppingRobot
 {
     public:
-        Terminator(std::string name, int xPos, int yPos, std::string symbol);
+        Terminator(std::string name, int xPos, int yPos, std::string symbol,
+                   std::string type);
         void executeActionPlan() override;
         std::shared_ptr<Robot> upgrade() override;
 };
