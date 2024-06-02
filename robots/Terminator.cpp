@@ -59,9 +59,13 @@ std::shared_ptr<Robot> Terminator::upgrade()
 {
     if (killCount >= 3)
     {
-        // type shouldn't matter here anymore since it won't be used
-        return std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol,
-                                                   "TerminatorRoboCop");
+        std::shared_ptr<TerminatorRoboCop> upgradedRobot =
+            std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol,
+                                                "TerminatorRoboCop");
+
+        upgradedRobot->addBattlefield(battlefield);
+
+        return upgradedRobot;
     }
     return nullptr;
 }
