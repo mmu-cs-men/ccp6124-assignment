@@ -65,10 +65,10 @@ int main()
         {
         case 1:
             battlefield->runSimulation(false);
-            return;
+            return 0;
         case 2:
             battlefield->runSimulation(true);
-            return;
+            return 0;
         case 3:
             return 0;
         default:
