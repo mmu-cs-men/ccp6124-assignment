@@ -99,8 +99,7 @@ std::string Battlefield::getBattlefieldString()
 {
     std::string output;
     std::string border(yDim + 2, '*');
-    output += border + "
-";
+    output += border + "\n";
     for (int i = 0; i < xDim; i++)
     {
         output += "*";
@@ -108,34 +107,25 @@ std::string Battlefield::getBattlefieldString()
         {
             output += battlefieldMatrix[i][j]->getSymbol();
         }
-        output += "*
-";
+        output += "*\n";
     }
-    output += border + "
-
-";
+    output += border + "\n\n";
 
     output += "Steps: " + std::to_string(currentStep) + "/" +
-              std::to_string(maxSteps) + "
-";
+              std::to_string(maxSteps) + "\n";
     output += "Respawn Queue: ";
     for (const std::string &robotSymbol : respawnQueueStr)
     {
         output += robotSymbol;
     }
-    output += "
+    output += "\n\n";
 
-";
-
-    output += "Event Log: 
-";
+    output += "Event Log: \n";
     while (!eventQueue.isEmpty())
     {
-        output += eventQueue.dequeue() + "
-";
+        output += eventQueue.dequeue() + "\n";
     }
-    output += "
-";
+    output += "\n";
 
     return output;
 }

@@ -2,12 +2,12 @@
 Program: SeeingRobot.cpp
 Course: Object Oriented Programming and Data Structures
 Trimester: 2410
-Name: Harris Majeed
-ID: 1221102800
+Name: Laxman Pillai
+ID: 1221102008
 Lecture Section: TC1L
 Tutorial Section: TT1L
-Email: 1221102800@student.mmu.edu.my
-Phone: 017-366-6523
+Email: 1221102008@student.mmu.edu.my
+Phone: 012-525-8246
 **********|**********|**********/
 
 #include "SeeingRobot.h"
