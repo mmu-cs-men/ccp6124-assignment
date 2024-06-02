@@ -29,8 +29,13 @@ void Terminator::executeActionPlan()
         }
     }
 
-    Direction randomDirection =
-        static_cast<Direction>(Helper::generateRandomNumber(0, 7));
+    std::shared_ptr<Cell> randomCell;
+    do
+    {
+        int randomX = Helper::generateRandomNumber(0, 2);
+        int randomY = Helper::generateRandomNumber(0, 2);
+        randomCell = lookArr[randomX][randomY];
+    } while (!randomCell);
 
-    stomp(randomDirection);
+    stomp(randomCell->getX(), randomCell->getY());
 }
