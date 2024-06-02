@@ -11,6 +11,7 @@ Phone: 017-366-6523
 **********|**********|**********/
 
 #include "TerminatorRoboCop.h"
+#include "../util/Battlefield.h"
 #include "../util/Helper.h"
 
 TerminatorRoboCop::TerminatorRoboCop(std::string name, int xPos, int yPos,
@@ -67,8 +68,10 @@ void TerminatorRoboCop::executeActionPlan()
         int randomX, randomY;
         do
         {
-            randomX = Helper::generateRandomNumber(0, 10);
-            randomY = Helper::generateRandomNumber(0, 10 - randomX);
+            randomX = Helper::generateRandomNumber(
+                0, std::min(10, battlefield->getXDim() - xPos - 1));
+            randomY = Helper::generateRandomNumber(
+                0, std::min(10 - randomX, battlefield->getYDim() - yPos - 1));
         } while (randomX == 0 && randomY == 0);
         fire(randomX, randomY);
     }
