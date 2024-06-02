@@ -1,8 +1,23 @@
-#include "Terminator.h"
+/**********|**********|**********|
+Program: Terminator.cpp
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
 
-Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol)
-    : SeeingRobot(name, xPos, yPos, symbol),
-      SteppingRobot(name, xPos, yPos, symbol), Robot(name, xPos, yPos, symbol)
+#include "Terminator.h"
+#include "TerminatorRoboCop.h"
+
+Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol,
+                       std::string type)
+    : SeeingRobot(name, xPos, yPos, symbol, type),
+      SteppingRobot(name, xPos, yPos, symbol, type),
+      Robot(name, xPos, yPos, symbol, type)
 {
 }
 
@@ -15,22 +30,38 @@ void Terminator::executeActionPlan()
     // If neighbor, step on it
     for (auto &row : lookArr)
     {
-        for (auto &item : row)
+        for (auto &cell : row)
         {
-            if (!item)
+            if (!cell)
             {
                 continue;
             }
-            else if (item->isOccupied())
+            else if (cell->isOccupied())
             {
-                stomp(item->getX(), item->getY());
+                stomp(cell->getX(), cell->getY());
                 return;
             }
         }
     }
 
-    Direction randomDirection =
-        static_cast<Direction>(Helper::generateRandomNumber(0, 7));
+    std::shared_ptr<Cell> randomCell;
+    do
+    {
+        int randomX = Helper::generateRandomNumber(0, 2);
+        int randomY = Helper::generateRandomNumber(0, 2);
+        randomCell = lookArr[randomX][randomY];
+    } while (!randomCell);
 
-    stomp(randomDirection);
+    stomp(randomCell->getX(), randomCell->getY());
+}
+
+std::shared_ptr<Robot> Terminator::upgrade()
+{
+    if (killCount >= 3)
+    {
+        // type shouldn't matter here anymore since it won't be used
+        return std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol,
+                                                   "TerminatorRoboCop");
+    }
+    return nullptr;
 }

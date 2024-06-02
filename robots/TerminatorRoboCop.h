@@ -1,5 +1,5 @@
 /**********|**********|**********|
-Program: Terminator.h
+Program: TerminatorRoboCop.h
 Course: Object Oriented Programming and Data Structures
 Trimester: 2410
 Name: Harris Majeed
@@ -12,16 +12,16 @@ Phone: 017-366-6523
 
 #pragma once
 
-#include "../util/Direction.h"
-#include "../util/Helper.h"
 #include "base/SeeingRobot.h"
+#include "base/ShootingRobot.h"
 #include "base/SteppingRobot.h"
 
-class Terminator : public SeeingRobot, public SteppingRobot
+class TerminatorRoboCop : public SeeingRobot,
+                          public ShootingRobot,
+                          public SteppingRobot
 {
     public:
-        Terminator(std::string name, int xPos, int yPos, std::string symbol,
-                   std::string type);
+        TerminatorRoboCop(std::string name, int xPos, int yPos,
+                          std::string symbol, std::string type);
         void executeActionPlan() override;
-        std::shared_ptr<Robot> upgrade() override;
 };

@@ -1,9 +1,21 @@
+/**********|**********|**********|
+Program: SteppingRobot.cpp
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
+
 #include "SteppingRobot.h"
 #include "../../util/Battlefield.h"
 
 SteppingRobot::SteppingRobot(std::string name, int xPos, int yPos,
-                             std::string symbol)
-    : Robot(name, xPos, yPos, symbol)
+                             std::string symbol, std::string type)
+    : Robot(name, xPos, yPos, symbol, type)
 {
 }
 

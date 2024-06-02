@@ -1,5 +1,19 @@
+/**********|**********|**********|
+Program: ConfigurationParser.cpp
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
+
 #include "ConfigurationParser.h"
+#include "../robots/RoboCop.h"
 #include "../robots/Terminator.h"
+#include "../robots/TerminatorRoboCop.h"
 #include "Helper.h"
 
 ConfigurationParser::ConfigurationParser(const std::string &filePath)
@@ -70,7 +84,17 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
 
     if (type == "Terminator")
     {
-        return std::make_shared<Terminator>(name, x, y, robotSymbol);
+        return std::make_shared<Terminator>(name, x, y, robotSymbol,
+                                            "Terminator");
+    }
+    else if (type == "RoboCop")
+    {
+        return std::make_shared<RoboCop>(name, x, y, robotSymbol, "RoboCop");
+    }
+    else if (type == "TerminatorRoboCop")
+    {
+        return std::make_shared<TerminatorRoboCop>(name, x, y, robotSymbol,
+                                                   "TerminatorRoboCop");
     }
     else
     {

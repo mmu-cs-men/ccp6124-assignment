@@ -1,3 +1,15 @@
+/**********|**********|**********|
+Program: ShootingRobot.h
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
+
 #pragma once
 
 #include "Robot.h"
@@ -18,8 +30,10 @@ class ShootingRobot : virtual public Robot
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
+         * @param type The type of the robot.
          */
-        ShootingRobot(std::string name, int xPos, int yPos, std::string symbol);
+        ShootingRobot(std::string name, int xPos, int yPos, std::string symbol,
+                      std::string type);
 
         /**
          * @brief Fires at a target relative to the robot's current position.

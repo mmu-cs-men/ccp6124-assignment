@@ -1,0 +1,71 @@
+/**********|**********|**********|
+Program: TerminatorRoboCop.cpp
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
+
+#include "TerminatorRoboCop.h"
+#include "../util/Helper.h"
+
+TerminatorRoboCop::TerminatorRoboCop(std::string name, int xPos, int yPos,
+                                     std::string symbol, std::string type)
+    : ShootingRobot(name, xPos, yPos, symbol, type),
+      SeeingRobot(name, xPos, yPos, symbol, type),
+      SteppingRobot(name, xPos, yPos, symbol, type),
+      Robot(name, xPos, yPos, symbol, type)
+{
+}
+
+void TerminatorRoboCop::executeActionPlan()
+{
+    // Store original position
+    int originalX = xPos;
+    int originalY = yPos;
+
+    // Look at current position
+    auto lookArr = look(0, 0);
+
+    // Determine which neighbor has robot. If no neighbor, move randomly
+    // If neighbor, step on it
+    for (auto &row : lookArr)
+    {
+        for (auto &cell : row)
+        {
+            if (!cell)
+            {
+                continue;
+            }
+            else if (cell->isOccupied())
+            {
+                stomp(cell->getX(), cell->getY());
+            }
+        }
+    }
+
+    if (xPos == originalX || yPos == originalY)
+    {
+        std::shared_ptr<Cell> randomCell;
+        do
+        {
+            int randomX = Helper::generateRandomNumber(0, 2);
+            int randomY = Helper::generateRandomNumber(0, 2);
+            randomCell = lookArr[randomX][randomY];
+        } while (!randomCell);
+
+        stomp(randomCell->getX(), randomCell->getY());
+    }
+
+    // Fire three times randomly (x+y <= 10)
+    for (int i = 0; i < 3; i++)
+    {
+        int randomX = Helper::generateRandomNumber(0, 10);
+        int randomY = Helper::generateRandomNumber(0, 10 - randomX);
+        fire(randomX, randomY);
+    }
+}

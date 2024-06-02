@@ -1,3 +1,15 @@
+/**********|**********|**********|
+Program: Robot.h
+Course: Object Oriented Programming and Data Structures
+Trimester: 2410
+Name: Harris Majeed
+ID: 1221102800
+Lecture Section: TC1L
+Tutorial Section: TT1L
+Email: 1221102800@student.mmu.edu.my
+Phone: 017-366-6523
+**********|**********|**********/
+
 #pragma once
 
 #include <memory>
@@ -21,8 +33,10 @@ class Robot : public std::enable_shared_from_this<Robot>
          * @param xPos The initial x-coordinate of the robot.
          * @param yPos The initial y-coordinate of the robot.
          * @param symbol The symbol representing the robot.
+         * @param type The type of the robot.
          */
-        Robot(std::string name, int xPos, int yPos, std::string symbol);
+        Robot(std::string name, int xPos, int yPos, std::string symbol,
+              std::string type);
 
         /**
          * @brief Populates the battlefield member. This should only ever be
@@ -68,6 +82,15 @@ class Robot : public std::enable_shared_from_this<Robot>
          * @return The name of the robot.
          */
         std::string getName() const;
+
+        /**
+         * @brief Gets the type of the robot.
+         *
+         * This function returns a string representing the type of the robot.
+         *
+         * @return The type of the robot as a string.
+         */
+        std::string getType() const;
 
         /**
          * @brief Gets the x-coordinate of the robot.
@@ -123,6 +146,7 @@ class Robot : public std::enable_shared_from_this<Robot>
 
     protected:
         std::string name;
+        std::string type;
         int xPos;
         int yPos;
         std::string symbol;
