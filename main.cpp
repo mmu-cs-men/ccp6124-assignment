@@ -17,7 +17,15 @@ Phone: 012-364-0956
 #include <memory>
 
 // clang-format off
-// g++ main.cpp util/Battlefield.cpp robots/base/Robot.cpp robots/Terminator.cpp util/Cell.cpp util/Helper.cpp robots/base/SeeingRobot.cpp robots/base/SteppingRobot.cpp util/ConfigurationParser.cpp -o main
+
+// Compile command:
+// If you're on Linux/Git Bash/Mac, you may use this command:
+// g++ $(find . -name "*.cpp") -o main
+//
+// If you are on Windows and running in Powershell, this command probably works
+// but I haven't tested it:
+// g++ (Get-ChildItem -Recurse -Filter *.cpp).FullName -o main.exe
+
 // clang-format on
 
 int main()
