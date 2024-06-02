@@ -1,4 +1,5 @@
 #include "Terminator.h"
+#include "TerminatorRoboCop.h"
 
 Terminator::Terminator(std::string name, int xPos, int yPos, std::string symbol)
     : SeeingRobot(name, xPos, yPos, symbol),
@@ -38,4 +39,13 @@ void Terminator::executeActionPlan()
     } while (!randomCell);
 
     stomp(randomCell->getX(), randomCell->getY());
+}
+
+std::shared_ptr<Robot> Terminator::upgrade()
+{
+    if (killCount >= 3)
+    {
+        return std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol);
+    }
+    return nullptr;
 }

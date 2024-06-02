@@ -10,4 +10,5 @@ class Terminator : public SeeingRobot, public SteppingRobot
     public:
         Terminator(std::string name, int xPos, int yPos, std::string symbol);
         void executeActionPlan() override;
+        std::shared_ptr<Robot> upgrade() override;
 };
