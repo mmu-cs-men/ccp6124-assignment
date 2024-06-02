@@ -15,15 +15,15 @@ void Terminator::executeActionPlan()
     // If neighbor, step on it
     for (auto &row : lookArr)
     {
-        for (auto &item : row)
+        for (auto &cell : row)
         {
-            if (!item)
+            if (!cell)
             {
                 continue;
             }
-            else if (item->isOccupied())
+            else if (cell->isOccupied())
             {
-                stomp(item->getX(), item->getY());
+                stomp(cell->getX(), cell->getY());
                 return;
             }
         }
