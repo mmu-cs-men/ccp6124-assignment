@@ -14,6 +14,7 @@ Phone: 012-364-0956
 #include "robots/base/Robot.h"
 #include "util/Battlefield.h"
 #include "util/ConfigurationParser.h"
+#include "util/SplashScreen.h"
 #include <memory>
 
 // clang-format off
@@ -46,7 +47,26 @@ int main()
         battlefield->addRobot(robot);
     }
 
-    // TODO: Add splash screen here
+    SplashScreen::display(xDim, yDim, maxSteps, robotNum, robots);
 
-    battlefield->runSimulation(false);
+    while (true)
+    {
+        int input;
+        std::cout << "Input: ";
+        std::cin >> input;
+
+        switch (input)
+        {
+        case 1:
+            battlefield->runSimulation(false);
+            break;
+        case 2:
+            battlefield->runSimulation(true);
+            break;
+        case 3:
+            return 0;
+        default:
+            std::cout << "Invalid input! Try again." << std::endl;
+        }
+    }
 }
