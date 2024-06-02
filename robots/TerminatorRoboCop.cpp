@@ -64,8 +64,12 @@ void TerminatorRoboCop::executeActionPlan()
     // Fire three times randomly (x+y <= 10)
     for (int i = 0; i < 3; i++)
     {
-        int randomX = Helper::generateRandomNumber(0, 10);
-        int randomY = Helper::generateRandomNumber(0, 10 - randomX);
+        int randomX, randomY;
+        do
+        {
+            randomX = Helper::generateRandomNumber(0, 10);
+            randomY = Helper::generateRandomNumber(0, 10 - randomX);
+        } while (randomX == 0 && randomY == 0);
         fire(randomX, randomY);
     }
 }
