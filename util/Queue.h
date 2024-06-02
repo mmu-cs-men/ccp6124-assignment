@@ -14,9 +14,6 @@
  */
 template <typename T> class Queue
 {
-    private:
-        CircularLinkedList<T> list;
-
     public:
         /**
          * @brief Adds an element to the end of the queue.
@@ -64,4 +61,7 @@ template <typename T> class Queue
         {
             return list.size();
         }
+
+    private:
+        CircularLinkedList<T> list;
 };
