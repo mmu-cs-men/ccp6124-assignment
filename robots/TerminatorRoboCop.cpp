@@ -34,6 +34,7 @@ void TerminatorRoboCop::executeActionPlan()
 
     // Determine which neighbor has robot. If no neighbor, move randomly
     // If neighbor, step on it
+    bool stomped = false;
     for (auto &row : lookArr)
     {
         for (auto &cell : row)
@@ -45,11 +46,15 @@ void TerminatorRoboCop::executeActionPlan()
             else if (cell->isOccupied())
             {
                 stomp(cell->getX(), cell->getY());
+                stomped = true;
+                break;
             }
         }
+        if (stomped)
+            break;
     }
 
-    if (xPos == originalX || yPos == originalY)
+    if (!stomped)
     {
         std::shared_ptr<Cell> randomCell;
         do
