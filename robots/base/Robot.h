@@ -70,6 +70,9 @@ class Robot : public std::enable_shared_from_this<Robot>
          * upgrade, the checking must be done here by looking at `killCount`. If
          * the criteria for upgrade is not met, return `nullptr`.
          *
+         * @attention Remember to bind the battlefield to the new robot. Bad
+         * things will happen otherwise.
+         *
          * @return A shared pointer to the upgraded robot.
          */
         virtual std::shared_ptr<Robot> upgrade();

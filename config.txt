@@ -1,5 +1,5 @@
 M by N : 40 50
-steps: 300
+steps: 30000
 robots: 4
 Terminator  Alpha       35      20
 Terminator  Beta        20      37
