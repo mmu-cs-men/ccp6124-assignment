@@ -14,6 +14,8 @@ Phone: 017-366-6523
 #include "../robots/RoboCop.h"
 #include "../robots/Terminator.h"
 #include "../robots/TerminatorRoboCop.h"
+#include "../robots/RoboTank.h"
+#include "../robots/UltimateRobot.h"
 #include "Helper.h"
 
 ConfigurationParser::ConfigurationParser(const std::string &filePath)
@@ -101,6 +103,16 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
     {
         return std::make_shared<TerminatorRoboCop>(name, x, y, robotSymbol,
                                                    "TerminatorRoboCop");
+    }
+    else if (type == "RoboTank")
+    {
+        return std::make_shared<RoboTank>(name, x, y, robotSymbol,
+                                                   "RoboTank");
+    }
+    else if (type == "UltimateRobot")
+    {
+        return std::make_shared<UltimateRobot>(name, x, y, robotSymbol,
+                                                   "UltimateRobot");
     }
     else
     {
