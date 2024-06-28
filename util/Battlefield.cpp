@@ -104,12 +104,12 @@ int Battlefield::getParticipatingRobots() const
 std::string Battlefield::getBattlefieldString()
 {
     std::string output;
-    std::string border(yDim + 2, '*');
+    std::string border(xDim + 2, '*');
     output += border + "\n";
-    for (int i = 0; i < xDim; i++)
+    for (int j = 0; j < yDim; j++)
     {
         output += "*";
-        for (int j = 0; j < yDim; j++)
+        for (int i = 0; i < xDim; i++)
         {
             output += battlefieldMatrix[i][j]->getSymbol();
         }
