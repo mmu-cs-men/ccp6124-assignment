@@ -35,6 +35,12 @@ ConfigurationParser::ConfigurationParser(const std::string &filePath)
     std::getline(file, line);
     robotNum = std::stoi(line.substr(line.find(':') + 1));
 
+    if (xDim * yDim < robotNum)
+    {
+        throw std::runtime_error(
+            "Battlefield is too small to contain all robots");
+    }
+
     for (int i = 0; i < robotNum; ++i)
     {
         std::getline(file, line);
