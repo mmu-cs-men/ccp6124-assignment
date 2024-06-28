@@ -175,6 +175,7 @@ void Battlefield::runSimulation(bool asap)
             std::cout << battlefieldString;
             Helper::appendStrToLogFile(battlefieldString);
             std::cout << "Press Enter to continue to next turn..." << std::endl;
+            std::cin.ignore();
             std::cin.get();
         }
         else
