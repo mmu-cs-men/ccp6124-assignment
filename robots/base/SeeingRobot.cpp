@@ -44,7 +44,7 @@ std::array<std::array<std::shared_ptr<Cell>, 3>, 3> SeeingRobot::look(int dx,
         }
     }
     battlefield->logEvent(
-        name + " (" + symbol + ") " + " performed a look action centered on " +
+        name + " (" + symbol + ")" + " performed a look action centered on " +
         "(" + std::to_string(newXPos) + ", " + std::to_string(newYPos) + ")");
     return visionGrid;
 }
