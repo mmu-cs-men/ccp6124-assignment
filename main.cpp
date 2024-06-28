@@ -17,8 +17,6 @@ Phone: 012-364-0956
 #include "util/SplashScreen.h"
 #include <memory>
 
-// clang-format off
-
 // Harris:
 // Compile command:
 // If you're on Linux/Git Bash/Mac, you may use this command:
@@ -27,8 +25,6 @@ Phone: 012-364-0956
 // If you are on Windows and running in Powershell, this command probably works
 // but I haven't tested it because I'm on Linux:
 // g++ (Get-ChildItem -Recurse -Filter *.cpp).FullName -o main.exe
-
-// clang-format on
 
 int main()
 {
