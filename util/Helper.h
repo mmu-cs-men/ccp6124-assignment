@@ -66,5 +66,12 @@ struct Helper
          */
         static void updateLogCount();
 
+        /**
+         * @brief Clears the console screen.
+         *
+         * I feel like that's pretty self-explanatory.
+         */
+        static void clearScreen();
+
         static int logCount;
 };
