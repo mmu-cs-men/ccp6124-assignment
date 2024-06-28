@@ -165,7 +165,7 @@ void Battlefield::respawnRobot()
     eventQueue.enqueue(robot->getName() + " respawned");
 }
 
-void Battlefield::runSimulation(bool asap)
+void Battlefield::runSimulation(bool asap, bool clearTerminal)
 {
     while (currentStep <= maxSteps && getParticipatingRobots() > 1)
     {
@@ -181,6 +181,10 @@ void Battlefield::runSimulation(bool asap)
             std::cout << "Press Enter to continue to next turn..." << std::endl;
             std::cin.ignore();
             std::cin.get();
+            if (clearTerminal)
+            {
+                Helper::clearScreen();
+            }
         }
         else
         {

@@ -60,12 +60,14 @@ class Battlefield
          *
          * @param asap If true, the simulation runs without waiting for user
          * input between steps.
+         * @param clearTerminal If true, clears the terminal between steps.
          *
          * Runs the simulation until the maximum number of steps is reached or
          * only one robot remains. Displays the battlefield and logs events at
-         * each step.
+         * each step. The simulation can be run step-by-step with user input,
+         * as fast as possible, or with clearing the terminal between steps.
          */
-        void runSimulation(bool asap);
+        void runSimulation(bool asap, bool clearTerminal);
 
         /**
          * @brief Gets a cell at the specified coordinates.

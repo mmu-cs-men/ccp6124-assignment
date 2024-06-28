@@ -48,8 +48,9 @@ int main()
 
     std::cout << "Please select what would you like to do:" << std::endl;
     std::cout << "1. Run simulation step-by-step" << std::endl;
-    std::cout << "2. Run simulation as fast as possible" << std::endl;
-    std::cout << "3. Quit program" << std::endl << std::endl;
+    std::cout << "2. Run simulation step-by-step (clear terminal)" << std::endl;
+    std::cout << "3. Run simulation as fast as possible" << std::endl;
+    std::cout << "4. Quit program" << std::endl << std::endl;
 
     while (true)
     {
@@ -60,12 +61,15 @@ int main()
         switch (input)
         {
         case 1:
-            battlefield->runSimulation(false);
+            battlefield->runSimulation(false, false);
             return 0;
         case 2:
-            battlefield->runSimulation(true);
+            battlefield->runSimulation(false, true);
             return 0;
         case 3:
+            battlefield->runSimulation(true, false);
+            return 0;
+        case 4:
             return 0;
         default:
             std::cout << "\nInvalid input! Try again." << std::endl;
