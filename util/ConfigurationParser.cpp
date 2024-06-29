@@ -21,9 +21,11 @@ error checking.
 
 #include "ConfigurationParser.h"
 #include "../robots/BlueThunder.h"
+#include "../robots/Landmine.h"
 #include "../robots/Madbot.h"
 #include "../robots/RoboCop.h"
 #include "../robots/RoboTank.h"
+#include "../robots/SniperBot.h"
 #include "../robots/Terminator.h"
 #include "../robots/TerminatorRoboCop.h"
 #include "../robots/UltimateRobot.h"
@@ -134,6 +136,15 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
     {
         return std::make_shared<UltimateRobot>(name, x, y, robotSymbol,
                                                "UltimateRobot");
+    }
+    else if (type == "Landmine")
+    {
+        return std::make_shared<Landmine>(name, x, y, robotSymbol, "Landmine");
+    }
+    else if (type == "SniperBot")
+    {
+        return std::make_shared<SniperBot>(name, x, y, robotSymbol,
+                                           "SniperBot");
     }
     else
     {
