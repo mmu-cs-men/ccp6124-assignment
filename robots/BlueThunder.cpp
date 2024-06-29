@@ -33,53 +33,15 @@ BlueThunder::BlueThunder(std::string name, int xPos, int yPos,
 
 void BlueThunder::executeActionPlan()
 {
-    // Fire in the current direction
-    Direction dir = currentDirection;
-    int dx = 0;
-    int dy = 0;
-    switch (dir)
+    try
     {
-    case Direction::UP:
-        dy = 1;
-        break;
-    case Direction::UP_RIGHT:
-        dx = 1;
-        dy = 1;
-        break;
-    case Direction::RIGHT:
-        dx = 1;
-        break;
-    case Direction::DOWN_RIGHT:
-        dx = 1;
-        dy = -1;
-        break;
-    case Direction::DOWN:
-        dy = -1;
-        break;
-    case Direction::DOWN_LEFT:
-        dx = -1;
-        dy = -1;
-        break;
-    case Direction::LEFT:
-        dx = -1;
-        break;
-    case Direction::UP_LEFT:
-        dx = -1;
-        dy = 1;
-        break;
+        fire(currentDirection);
+        currentDirection = directions.next(currentDirection);
     }
-
-    int newX = xPos + dx;
-    int newY = yPos + dy;
-
-    // Move to the next direction
-    if (newX >= battlefield->getXDim() || newY >= battlefield->getYDim())
+    catch (const std::out_of_range &e)
     {
         currentDirection = directions.next(currentDirection);
         executeActionPlan();
         return;
     }
-
-    currentDirection = directions.next(currentDirection);
-    fire(dx, dy);
 }
