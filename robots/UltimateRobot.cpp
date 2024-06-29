@@ -70,7 +70,9 @@ void UltimateRobot::executeActionPlan()
     // Fire three times randomly (no distance limit)
     for (int i = 0; i < 3; i++)
     {
-        int randomX, randomY;
+        int randomX;
+        int randomY;
+
         do
         {
             randomX =
