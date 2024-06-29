@@ -150,6 +150,18 @@ class Battlefield
          */
         void respawnRobot();
 
+        /**
+         * @brief Checks if the given coordinates are within the battlefield
+         * boundaries.
+         *
+         * @param x The x-coordinate to check.
+         * @param y The y-coordinate to check.
+         *
+         * @return true If the coordinates are within the battlefield.
+         * @return false If the coordinates are outside the battlefield.
+         */
+        bool isInBattlefield(int x, int y) const;
+
         Queue<std::shared_ptr<Robot>> respawnQueue;
 
         // Events are added to a queue instead of being printed directly.

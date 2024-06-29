@@ -237,3 +237,8 @@ int Battlefield::getYDim() const
 {
     return yDim;
 }
+
+bool Battlefield::isInBattlefield(int x, int y) const
+{
+    return x >= 0 && x < xDim && y >= 0 && y < yDim;
+}
