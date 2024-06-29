@@ -16,15 +16,14 @@ Phone: 012-525-8246
 #include "../util/Direction.h"
 #include "base/ShootingRobot.h"
 
-class BlueThunder :  public ShootingRobot
+class BlueThunder : public ShootingRobot
 {
     public:
         BlueThunder(std::string name, int xPos, int yPos, std::string symbol,
                     std::string type);
         void executeActionPlan() override;
 
-private:
-    CircularLinkedList<Direction> directions;
-    Direction currentDirection;
-    
+    private:
+        CircularLinkedList<Direction> directions;
+        Direction currentDirection;
 };
