@@ -10,7 +10,6 @@ Email: 1221102320@student.mmu.edu.my
 Phone: 012-364-0956
 **********|**********|**********/
 
-#include "robots/Terminator.h"
 #include "robots/base/Robot.h"
 #include "util/Battlefield.h"
 #include "util/ConfigurationParser.h"
