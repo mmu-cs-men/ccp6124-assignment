@@ -95,6 +95,8 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
     int y = (yPos == "random") ? Helper::generateRandomNumber(0, yDim - 1)
                                : std::stoi(yPos);
 
+    // This will repeat if there are more than 94 robots, but I feel like nobody
+    // will add that many.
     std::string robotSymbol(1, 'A' + (robots.size() % 94));
 
     if (type == "Terminator")
