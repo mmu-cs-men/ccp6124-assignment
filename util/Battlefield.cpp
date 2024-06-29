@@ -163,7 +163,9 @@ void Battlefield::respawnRobot()
     battlefieldMatrix[randomX][randomY]->placeRobot(robot);
 
     robots.append(robot);
-    eventQueue.enqueue(robot->getName() + " respawned");
+    eventQueue.enqueue(robot->getName() + " respawned at (" +
+                       std::to_string(randomX) + ", " +
+                       std::to_string(randomY) + ")");
 }
 
 void Battlefield::runSimulation(bool asap, bool clearTerminal)
