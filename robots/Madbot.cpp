@@ -1,13 +1,13 @@
 /**********|**********|**********|
-Program: BlueThunder.cpp
+Program: Madbot.cpp
 Course: Object Oriented Programming and Data Structures
 Trimester: 2410
-Name: Laxman Pillai A/L Ramesh Pillai
-ID: 1221102008
+Name: Hawash, Abdullah
+ID: 1221102209
 Lecture Section: TC1L
 Tutorial Section: TT1L
-Email: 12211020080@student.mmu.edu.my
-Phone: 012-525-8246
+Email: 1221102209@student.mmu.edu.my
+Phone: 017-250-3208
 **********|**********|**********/
 
 #include "Madbot.h"

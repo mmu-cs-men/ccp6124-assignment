@@ -1,13 +1,13 @@
 /**********|**********|**********|
-Program: BlueThunder.cpp
+Program: RoboTank.cpp
 Course: Object Oriented Programming and Data Structures
 Trimester: 2410
-Name: Laxman Pillai A/L Ramesh Pillai
-ID: 1221102008
+Name: Sivananthan Seliyan
+ID: 1221102320
 Lecture Section: TC1L
 Tutorial Section: TT1L
-Email: 12211020080@student.mmu.edu.my
-Phone: 012-525-8246
+Email: 1221102320student.mmu.edu.my
+Phone: 012-364-0956
 **********|**********|**********/
 
 #include "RoboTank.h"
