@@ -117,6 +117,18 @@ class Battlefield
         void killRobot(std::shared_ptr<Robot> killer,
                        std::shared_ptr<Cell> cell);
 
+        /**
+         * @brief Checks if the given coordinates are within the battlefield
+         * boundaries.
+         *
+         * @param x The x-coordinate to check.
+         * @param y The y-coordinate to check.
+         *
+         * @return true If the coordinates are within the battlefield.
+         * @return false If the coordinates are outside the battlefield.
+         */
+        bool isInBattlefield(int x, int y) const;
+
     private:
         /**
          * @brief Advances to the next robot in the list.
@@ -149,18 +161,6 @@ class Battlefield
          * logs the respawn event.
          */
         void respawnRobot();
-
-        /**
-         * @brief Checks if the given coordinates are within the battlefield
-         * boundaries.
-         *
-         * @param x The x-coordinate to check.
-         * @param y The y-coordinate to check.
-         *
-         * @return true If the coordinates are within the battlefield.
-         * @return false If the coordinates are outside the battlefield.
-         */
-        bool isInBattlefield(int x, int y) const;
 
         Queue<std::shared_ptr<Robot>> respawnQueue;
 
