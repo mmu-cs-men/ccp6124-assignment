@@ -57,15 +57,15 @@ void Terminator::executeActionPlan()
 
 std::shared_ptr<Robot> Terminator::upgrade()
 {
-    // if (killCount >= 3)
-    // {
-    //     std::shared_ptr<TerminatorRoboCop> upgradedRobot =
-    //         std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol,
-    //                                             "TerminatorRoboCop");
+    if (killCount >= 3)
+    {
+        std::shared_ptr<TerminatorRoboCop> upgradedRobot =
+            std::make_shared<TerminatorRoboCop>(name, xPos, yPos, symbol,
+                                                "TerminatorRoboCop");
 
-    //     upgradedRobot->addBattlefield(battlefield);
+        upgradedRobot->addBattlefield(battlefield);
 
-    //     return upgradedRobot;
-    // }
+        return upgradedRobot;
+    }
     return nullptr;
 }
