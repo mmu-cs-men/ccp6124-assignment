@@ -111,7 +111,8 @@ std::string Battlefield::getBattlefieldString()
         border += (i % 2 == 0) ? "*" : " ";
     }
     output += border + "\n";
-    for (int j = 0; j < yDim; j++)
+    for (int j = yDim - 1; j >= 0;
+         j--) // Changed loop to start from yDim - 1 and decrement
     {
         output += "* ";
         for (int i = 0; i < xDim; i++)
