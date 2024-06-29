@@ -12,6 +12,7 @@ Phone: 017-250-3208
 
 #pragma once
 
+#include "../../util/Direction.h"
 #include "Robot.h"
 
 /**
@@ -51,4 +52,18 @@ class ShootingRobot : virtual public Robot
          * @param dy The y-offset from the robot's current position.
          */
         void fire(int dx, int dy);
+
+        /**
+         * @brief Fires at a target in the specified direction.
+         *
+         * This function takes in a direction and performs a firing action in
+         * that direction relative to the robot's current position.
+         *
+         * @throws `std::out_of_range` - Will throw if the target is outside of
+         * the battlefield.
+         *
+         * @param direction The direction in which to perform the firing
+         * action.
+         */
+        void fire(Direction direction);
 };

@@ -46,3 +46,43 @@ void ShootingRobot::fire(int dx, int dy)
                           std::to_string(newX) + ", " + std::to_string(newY) +
                           ")");
 }
+
+void ShootingRobot::fire(Direction direction)
+{
+    int dx = 0;
+    int dy = 0;
+
+    switch (direction)
+    {
+    case Direction::UP:
+        dy += 1;
+        break;
+    case Direction::DOWN:
+        dy -= 1;
+        break;
+    case Direction::LEFT:
+        dx -= 1;
+        break;
+    case Direction::RIGHT:
+        dx += 1;
+        break;
+    case Direction::UP_RIGHT:
+        dx += 1;
+        dy += 1;
+        break;
+    case Direction::DOWN_RIGHT:
+        dx += 1;
+        dy -= 1;
+        break;
+    case Direction::DOWN_LEFT:
+        dx -= 1;
+        dy -= 1;
+        break;
+    case Direction::UP_LEFT:
+        dx -= 1;
+        dy += 1;
+        break;
+    }
+
+    fire(dx, dy);
+}
