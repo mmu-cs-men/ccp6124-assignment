@@ -1,7 +1,7 @@
-M by N : 40 50
-steps: 30000
+M by N : 10 10
+steps: 30
 robots: 4
-Terminator  Alpha       35      20
-Terminator  Beta        20      37
+Terminator  Alpha       random  random
+Terminator  Beta        random  random
 RoboCop     Laxman      random  random
 RoboCop     Dullah      random  random

@@ -197,6 +197,16 @@ void Battlefield::runSimulation(bool asap, bool clearTerminal)
     }
 
     std::cout << std::endl << "Simulation has ended." << std::endl;
+
+    if (getParticipatingRobots() == 1)
+    {
+        std::cout << "The winner is: " << robots.getHead()->getName() << " ("
+                  << robots.getHead()->getType() << ")" << std::endl;
+    }
+    else
+    {
+        std::cout << "No winner. The simulation ended in a draw." << std::endl;
+    }
 }
 
 std::shared_ptr<Cell> Battlefield::getCell(int x, int y) const
