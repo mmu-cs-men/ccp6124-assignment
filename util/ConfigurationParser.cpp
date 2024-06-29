@@ -23,6 +23,7 @@ error checking.
 #include "../robots/RoboCop.h"
 #include "../robots/Terminator.h"
 #include "../robots/TerminatorRoboCop.h"
+#include "../robots/BlueThunder.h"
 #include "Helper.h"
 
 ConfigurationParser::ConfigurationParser(const std::string &filePath)
@@ -113,8 +114,14 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
         return std::make_shared<TerminatorRoboCop>(name, x, y, robotSymbol,
                                                    "TerminatorRoboCop");
     }
+     else if (type == "BlueThunder")
+    {
+        return std::make_shared<BlueThunder>(name, x, y, robotSymbol,
+                                                   "BlueThunder");
+    }
     else
     {
         throw std::runtime_error("Unknown robot type: " + type);
     }
+
 }
