@@ -22,6 +22,7 @@ class BlueThunder : public ShootingRobot
         BlueThunder(std::string name, int xPos, int yPos, std::string symbol,
                     std::string type);
         void executeActionPlan() override;
+        std::shared_ptr<Robot> upgrade() override;
 
     private:
         CircularLinkedList<Direction> directions;

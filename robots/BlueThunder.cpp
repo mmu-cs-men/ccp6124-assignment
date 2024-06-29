@@ -13,6 +13,7 @@ Phone: 012-525-8246
 #include "BlueThunder.h"
 #include "../util/Battlefield.h"
 #include "../util/Helper.h"
+#include "Madbot.h"
 
 BlueThunder::BlueThunder(std::string name, int xPos, int yPos,
                          std::string symbol, std::string type)
@@ -44,4 +45,18 @@ void BlueThunder::executeActionPlan()
         executeActionPlan();
         return;
     }
+}
+
+std::shared_ptr<Robot> BlueThunder::upgrade()
+{
+    if (killCount >= 3)
+    {
+        std::shared_ptr<Madbot> upgradedRobot =
+            std::make_shared<Madbot>(name, xPos, yPos, symbol, "Madbot");
+
+        upgradedRobot->addBattlefield(battlefield);
+
+        return upgradedRobot;
+    }
+    return nullptr;
 }
