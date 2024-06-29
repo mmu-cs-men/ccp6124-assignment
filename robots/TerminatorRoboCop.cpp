@@ -13,6 +13,7 @@ Phone: 017-366-6523
 #include "TerminatorRoboCop.h"
 #include "../util/Battlefield.h"
 #include "../util/Helper.h"
+#include "UltimateRobot.h"
 
 TerminatorRoboCop::TerminatorRoboCop(std::string name, int xPos, int yPos,
                                      std::string symbol, std::string type)
@@ -80,4 +81,19 @@ void TerminatorRoboCop::executeActionPlan()
         } while (randomX == 0 && randomY == 0);
         fire(randomX, randomY);
     }
+}
+
+std::shared_ptr<Robot> TerminatorRoboCop::upgrade()
+{
+    if (killCount >= 3)
+    {
+        std::shared_ptr<UltimateRobot> upgradedRobot =
+            std::make_shared<UltimateRobot>(name, xPos, yPos, symbol,
+                                            "UltimateRobot");
+
+        upgradedRobot->addBattlefield(battlefield);
+
+        return upgradedRobot;
+    }
+    return nullptr;
 }
