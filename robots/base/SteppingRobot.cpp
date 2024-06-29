@@ -35,6 +35,11 @@ void SteppingRobot::stomp(int x, int y)
     }
 
     std::shared_ptr<Cell> targetCell = battlefield->getCell(x, y);
+
+    battlefield->getCell(xPos, yPos)->removeRobot();
+    xPos = x;
+    yPos = y;
+
     if (targetCell->isOccupied())
     {
         battlefield->logEvent(name + " (" + symbol + ") stomped on (" +
@@ -49,10 +54,7 @@ void SteppingRobot::stomp(int x, int y)
                               ")");
     }
 
-    battlefield->getCell(xPos, yPos)->removeRobot();
     targetCell->placeRobot(shared_from_this());
-    xPos = x;
-    yPos = y;
 }
 
 void SteppingRobot::stomp(Direction direction)

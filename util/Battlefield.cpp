@@ -49,10 +49,11 @@ void Battlefield::killRobot(std::shared_ptr<Robot> killer,
 
     if (upgradedRobot)
     {
+        getCell(killer->getXPos(), killer->getYPos())->removeRobot();
         upgradedRobot->setXPos(killer->getXPos());
         upgradedRobot->setYPos(killer->getYPos());
-        battlefieldMatrix[killer->getXPos()][killer->getYPos()]->placeRobot(
-            upgradedRobot);
+        getCell(killer->getXPos(), killer->getYPos())
+            ->placeRobot(upgradedRobot);
         robots.replace(killer, upgradedRobot);
 
         if (killer == currentRobot)
@@ -61,7 +62,7 @@ void Battlefield::killRobot(std::shared_ptr<Robot> killer,
         }
 
         logEvent(killer->getName() + " (" + killer->getSymbol() +
-                 ") has been upgraded!!!");
+                 ") has been upgraded to " + upgradedRobot->getType() + "!!!");
     }
 
     if (robot->getLives() > 0)
