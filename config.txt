@@ -1,7 +1,12 @@
 M by N : 10 10
-steps: 30
-robots: 4
-Terminator  Alpha       random  random
-Terminator  Beta        random  random
-RoboCop     Laxman      random  random
-RoboCop     Dullah      random  random
+steps: 1000
+robots: 3
+RoboTank                Harris2      random  random
+Madbot                  Dullah       random  random
+BlueThunder             Laxman       random  random
+Landmine                Laxman2      random  random
+RoboCop                 Harris       random  random
+SniperBot               Dullah2      random  random
+Terminator              Harris3      random  random
+TerminatorRoboCop       Siva         random  random
+UltimateRobot           Siva2        random  random

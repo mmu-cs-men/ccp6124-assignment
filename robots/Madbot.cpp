@@ -1,52 +1,43 @@
 /**********|**********|**********|
-Program: BlueThunder.cpp
+Program: MadBot.cpp
 Course: Object Oriented Programming and Data Structures
 Trimester: 2410
-Name: Laxman Pillai A/L Ramesh Pillai
-ID: 1221102008
+Name: Hawash, Abdullah
+ID: 1221102209
 Lecture Section: TC1L
 Tutorial Section: TT1L
-Email: 12211020080@student.mmu.edu.my
-Phone: 012-525-8246
-**********|**********|**********/
+Email: 1221102209@student.mmu.edu.my
+Phone: 017-250-3208
+**********|**********|***********/
 
 #include "Madbot.h"
+#include "../util/Battlefield.h"
 #include "../util/Helper.h"
-#include "RoboTank.h"
-#include <stdexcept>
 
-Madbot::Madbot(std::string name, int xPos, int yPos, std::string symbol,
-               std::string type)
-    : ShootingRobot(name, xPos, yPos, symbol, type),
-      Robot(name, xPos, yPos, symbol, type)
+Madbot::Madbot(const std::string &name, int x, int y, const std::string &symbol,
+               const std::string &type)
+    : Robot(name, x, y, symbol, type), ShootingRobot(name, x, y, symbol, type)
 {
 }
 
 void Madbot::executeActionPlan()
 {
-    Direction randomDirection =
-        static_cast<Direction>(Helper::generateRandomNumber(0, 7));
-    try
+    int dx, dy;
+
+    do
     {
-        fire(randomDirection);
-    }
-    catch (const std::out_of_range &e)
-    {
-        executeActionPlan();
-        return;
-    }
+        dx = Helper::generateRandomNumber(-1, 1);
+        dy = Helper::generateRandomNumber(-1, 1);
+    } while ((dx == 0 && dy == 0) || !isValidTarget(dx, dy));
+
+    fire(dx, dy);
 }
 
-std::shared_ptr<Robot> Madbot::upgrade()
+bool Madbot::isValidTarget(int dx, int dy)
 {
-    if (killCount >= 3)
-    {
-        std::shared_ptr<RoboTank> upgradedRobot =
-            std::make_shared<RoboTank>(name, xPos, yPos, symbol, "RoboTank");
+    int targetX = getXPos() + dx;
+    int targetY = getYPos() + dy;
 
-        upgradedRobot->addBattlefield(battlefield);
-
-        return upgradedRobot;
-    }
-    return nullptr;
+    return (targetX >= 0 && targetX < battlefield->getXDim() && targetY >= 0 &&
+            targetY < battlefield->getYDim());
 }
