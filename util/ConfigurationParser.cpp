@@ -21,6 +21,7 @@ error checking.
 
 #include "ConfigurationParser.h"
 #include "../robots/BlueThunder.h"
+#include "../robots/Madbot.h"
 #include "../robots/RoboCop.h"
 #include "../robots/RoboTank.h"
 #include "../robots/Terminator.h"
@@ -120,6 +121,10 @@ std::shared_ptr<Robot> ConfigurationParser::createRobot(const std::string &type,
     {
         return std::make_shared<BlueThunder>(name, x, y, robotSymbol,
                                              "BlueThunder");
+    }
+    else if (type == "Madbot")
+    {
+        return std::make_shared<Madbot>(name, x, y, robotSymbol, "Madbot");
     }
     else if (type == "RoboTank")
     {
