@@ -13,6 +13,7 @@ Phone: 012-525-8246
 #include "Madbot.h"
 #include "../util/Helper.h"
 #include "RoboTank.h"
+#include <stdexcept>
 
 Madbot::Madbot(std::string name, int xPos, int yPos, std::string symbol,
                std::string type)
@@ -25,7 +26,15 @@ void Madbot::executeActionPlan()
 {
     Direction randomDirection =
         static_cast<Direction>(Helper::generateRandomNumber(0, 7));
-    fire(randomDirection);
+    try
+    {
+        fire(randomDirection);
+    }
+    catch (const std::out_of_range &e)
+    {
+        executeActionPlan();
+        return;
+    }
 }
 
 std::shared_ptr<Robot> Madbot::upgrade()
