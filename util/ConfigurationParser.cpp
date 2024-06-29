@@ -10,6 +10,15 @@ Email: 1221102800@student.mmu.edu.my
 Phone: 017-366-6523
 **********|**********|**********/
 
+/*
+IMPORTANT NOTE
+--------------
+Please follow the format specified in the assignment instructions for the config
+file. Do not deviate from the format AT ALL such as including line breaks.
+Errors and undefined behaviour will result. The parser pretty much has no
+error checking.
+*/
+
 #include "ConfigurationParser.h"
 #include "../robots/RoboCop.h"
 #include "../robots/Terminator.h"
