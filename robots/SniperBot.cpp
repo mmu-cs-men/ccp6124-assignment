@@ -37,7 +37,7 @@ void SniperBot::executeActionPlan()
         int randomX = Helper::generateRandomNumber(0, 2);
         int randomY = Helper::generateRandomNumber(0, 2);
         randomCell = lookArr[randomX][randomY];
-    } while (randomCell->isOccupied());
+    } while (!randomCell || randomCell->isOccupied());
 
     move(randomCell->getX(), randomCell->getY());
 
@@ -46,9 +46,12 @@ void SniperBot::executeActionPlan()
     {
         for (auto &cell : row)
         {
-            if (cell->isOccupied())
+            if (cell && cell->isOccupied() &&
+                cell->getRobot() != shared_from_this())
             {
-                fire(cell->getX(), cell->getY());
+                int dx = cell->getX() - xPos;
+                int dy = cell->getY() - yPos;
+                fire(dx, dy);
             }
         }
     }
