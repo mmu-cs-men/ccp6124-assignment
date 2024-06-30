@@ -95,6 +95,7 @@ std::shared_ptr<Robot> TerminatorRoboCop::upgrade()
                                             "UltimateRobot");
 
         upgradedRobot->addBattlefield(battlefield);
+        upgradedRobot->setLives(lives);
 
         return upgradedRobot;
     }

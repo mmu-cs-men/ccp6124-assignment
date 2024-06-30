@@ -55,6 +55,7 @@ std::shared_ptr<Robot> BlueThunder::upgrade()
             std::make_shared<Madbot>(name, xPos, yPos, symbol, "Madbot");
 
         upgradedRobot->addBattlefield(battlefield);
+        upgradedRobot->setLives(lives);
 
         return upgradedRobot;
     }

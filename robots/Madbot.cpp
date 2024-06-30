@@ -45,6 +45,7 @@ std::shared_ptr<Robot> Madbot::upgrade()
             std::make_shared<RoboTank>(name, xPos, yPos, symbol, "RoboTank");
 
         upgradedRobot->addBattlefield(battlefield);
+        upgradedRobot->setLives(lives);
 
         return upgradedRobot;
     }

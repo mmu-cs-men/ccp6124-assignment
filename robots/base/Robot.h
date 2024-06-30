@@ -147,6 +147,16 @@ class Robot : public std::enable_shared_from_this<Robot>
          */
         void incrementKillCount();
 
+        /**
+         * @brief Sets the number of lives for the robot.
+         *
+         * This function is used to update the number of lives the robot
+         * has. This is mainly used to transfer lives when upgrading robots.
+         *
+         * @param lives_ The new number of lives to set for the robot.
+         */
+        void setLives(int lives_);
+
     protected:
         std::string name;
         std::string type;

@@ -81,3 +81,8 @@ void Robot::incrementKillCount()
 {
     killCount++;
 }
+
+void Robot::setLives(int lives_)
+{
+    lives = lives_;
+}
