@@ -40,16 +40,19 @@ void RoboCop::executeActionPlan()
 
     move(randomCell->getX(), randomCell->getY());
 
-    // Fire three times randomly (x+y <= 10)
+    // Fire three times randomly (abs(x) + abs(y) <= 10)
     for (int i = 0; i < 3; i++)
     {
         int randomX, randomY;
         do
         {
             randomX = Helper::generateRandomNumber(
-                0, std::min(10, battlefield->getXDim() - xPos - 1));
+                -std::min(10, xPos),
+                std::min(10, battlefield->getXDim() - xPos - 1));
             randomY = Helper::generateRandomNumber(
-                0, std::min(10 - randomX, battlefield->getYDim() - yPos - 1));
+                -std::min(10 - std::abs(randomX), yPos),
+                std::min(10 - std::abs(randomX),
+                         battlefield->getYDim() - yPos - 1));
         } while (randomX == 0 && randomY == 0);
         fire(randomX, randomY);
     }

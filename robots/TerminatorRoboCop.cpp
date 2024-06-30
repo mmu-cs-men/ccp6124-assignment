@@ -75,9 +75,12 @@ void TerminatorRoboCop::executeActionPlan()
         do
         {
             randomX = Helper::generateRandomNumber(
-                0, std::min(10, battlefield->getXDim() - xPos - 1));
+                -std::min(10, xPos),
+                std::min(10, battlefield->getXDim() - xPos - 1));
             randomY = Helper::generateRandomNumber(
-                0, std::min(10 - randomX, battlefield->getYDim() - yPos - 1));
+                -std::min(10 - std::abs(randomX), yPos),
+                std::min(10 - std::abs(randomX),
+                         battlefield->getYDim() - yPos - 1));
         } while (randomX == 0 && randomY == 0);
         fire(randomX, randomY);
     }
